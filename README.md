@@ -38,9 +38,9 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir uma issue para r
 
 ## Autores
 
- - [João Vitor Rodrigues do Nascimento] (https://github.com/webjotah) 
- - [Mateus Rodrigues Martins] ()
- - [Vicente dos Santos Silva] (https://github.com/SantosVicente)
+ - <a href="https://github.com/webjotah">João Vitor Rodrigues do Nascimento</a>
+ - <a href="">Mateus Rodrigues Martins</a>
+ - <a href="https://github.com/SantosVicente">Vicente dos Santos Silva</a>
 
 ## Licença
 
