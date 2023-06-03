@@ -1,7 +1,8 @@
 'use client'
 
 import React, { useEffect } from 'react';
-import ScrollReveal from 'scrollreveal';
+import ScrollReveal from 'scrollreveal'; //use scrollreveal para fazer parallax
+import { motion } from "framer-motion" //use frame-motion para fazer animações
 
 interface ScrollRevealComponentProps {
   children: React.ReactNode;
