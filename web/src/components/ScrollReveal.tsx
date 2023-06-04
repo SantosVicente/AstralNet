@@ -1,27 +1,83 @@
-'use client'
+"use client"
 
-import React, { useEffect } from "react";
-import ScrollReveal from "scrollreveal"; //use scrollreveal para fazer parallax
-//import { motion } from "framer-motion" //use frame-motion para fazer animações
+import React from "react";
+import { Element } from "react-scroll";
+import { Fade } from "react-awesome-reveal";
+import Image from "next/image";
+import Balance from "react-wrap-balancer";
+import Rocket from "../assets/rocket.svg";
+import Telescope from "../assets/telescope.svg";
+import Galaxy from "../assets/galaxy.svg";
+import Asteroid from "../assets/asteroid.svg";
+import Atom from "../assets/atom.svg";
+import Saturn from "../assets/saturn.svg";
 
-interface ScrollRevealComponentProps {
-  children: React.ReactNode;
-}
+const ScrollAnimationExample = () => {
+  return (
+    <div>
+      <Element name="section" className="scroll-element">
+        <Fade direction="up" duration={1000} triggerOnce>
+          <div className="scroll-reveal flex flex-col gap-20 items-center justify-center">
+            <h1 className="font-alt text-5xl text-zinc-200">
+              O QUE VOCÊ PODE ENCONTRAR
+            </h1>
+            <div className="grid grid-cols-3 grid-rows-2 gap-x-52 gap-y-16 text-zinc-200 font-alt text-4xl">
+              <div className="flex flex-col items-center gap-4">
+                <Image src={Rocket} width={70} alt="" />
+                <h2 className="text-center font-rob text-2xl w-[15vw]">
+                  <Balance>
+                    Type some information here, can be anything you want
+                  </Balance>
+                </h2>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <Image src={Telescope} width={70} alt="" />
+                <h2 className="text-center font-rob text-2xl w-[15vw]">
+                  <Balance>
+                    Type some information here, can be anything you want
+                  </Balance>
+                </h2>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <Image src={Galaxy} width={70} alt="" />
+                <h2 className="text-center font-rob text-2xl w-[15vw]">
+                  <Balance>
+                    Type some information here, can be anything you want
+                  </Balance>
+                </h2>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <Image src={Asteroid} width={70} alt="" />
+                <h2 className="text-center font-rob text-2xl w-[15vw]">
+                  <Balance>
+                    Type some information here, can be anything you want
+                  </Balance>
+                </h2>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <Image src={Atom} width={70} alt="" />
+                <h2 className="text-center font-rob text-2xl w-[15vw]">
+                  <Balance>
+                    Type some information here, can be anything you want
+                  </Balance>
+                </h2>
+              </div>
+              <div className="flex flex-col items-center gap-4">
+                <Image src={Saturn} width={70} alt="" />
+                <h2 className="text-center font-rob text-2xl w-[15vw] flex-wrap">
+                  <Balance>
+                    Type some information here, can be anything you want
+                  </Balance>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </Fade>
+      </Element>
 
-const ScrollRevealComponent: React.FC<ScrollRevealComponentProps> = ({
-  children,
-}) => {
-  useEffect(() => {
-    ScrollReveal().reveal(".scroll-reveal", {
-      opacity: 0, // Começa com opacidade 0 (invisível)
-      reset: true, // Reseta a animação quando o elemento sai da tela
-      distance: "50px", // Distância da animação
-      origin: "bottom", // Origem da animação
-      duration: 1500, // Duração da animação em milissegundos
-    });
-  }, []);
-
-  return <div className="scroll-reveal">{children}</div>;
+      {/* Restante do conteúdo da página */}
+    </div>
+  );
 };
 
-export default ScrollRevealComponent;
+export default ScrollAnimationExample;
