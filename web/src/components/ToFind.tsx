@@ -1,3 +1,5 @@
+'use client'
+
 import Rocket from "../assets/rocket.svg";
 import Telescope from "../assets/telescope.svg";
 import Galaxy from "../assets/galaxy.svg";
