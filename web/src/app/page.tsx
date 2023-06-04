@@ -21,7 +21,7 @@ export default function Home() {
       </header>
       <main className="flex flex-col h-[92.5vh] w-full items-center justify-center">
         <ScrollRevealComponent>
-          <div className="pl-24 relative w-screen flex flex-col gap-4">
+          <div className="pl-24 relative w-screen flex flex-col gap-6">
             <h1 className="font-alt text-5xl max-w-[720px] scroll-reveal">
               A ASTRONOMIA DESVENDADA DE MANEIRA SIMPLES
             </h1>
