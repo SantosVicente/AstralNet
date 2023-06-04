@@ -15,7 +15,7 @@ const ScrollRevealComponent: React.FC<ScrollRevealComponentProps> = ({ children 
       reset: true, // Reseta a animação quando o elemento sai da tela
       distance: '50px', // Distância da animação
       origin: 'bottom', // Origem da animação
-      duration: 1000, // Duração da animação em milissegundos
+      duration: 1500, // Duração da animação em milissegundos
     });
   }, []);
 

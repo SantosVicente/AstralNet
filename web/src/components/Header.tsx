@@ -5,12 +5,12 @@ import Link from "next/link";
 export default function Header() {
   return (
     <div className="flex justify-between items-center pt-2">
-      <Link href="" className="flex items-center ml-12">
-        <Image src={Logo} alt="" width={80} />
-        <p className="text-3xl font-alt ml-[-.5rem]">Astral Nexus</p>
+      <Link href="" className="flex gap-2 items-center ml-20">
+        <Image src={Logo} alt="" width={60} className="mt-1" />
+        <p className="text-3xl font-alt">Astral Nexus</p>
       </Link>
 
-      <ul className="flex gap-3 mr-12 font-alt text-zinc-400">
+      <ul className="flex gap-4 mr-20 font-alt text-zinc-400">
         <li>
           <Link href="" className="hover:text-zinc-50 transition-colors">
             Home
@@ -27,7 +27,7 @@ export default function Header() {
           </Link>
         </li>
         <li>
-          <Link href="" className="hover:text-zinc-50 transition-colors">
+          <Link href="" className="500 hover:text-zinc-50 transition-colors">
             Sign Up
           </Link>
         </li>

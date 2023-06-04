@@ -5,6 +5,7 @@ import {
 } from "next/font/google";
 
 import Header from "@/components/Header";
+import AboutUs from "@/components/AboutUs";
 
 const roboto = Roboto({ subsets: ["latin"], variable: "--font-roboto" });
 const baiJamjuree = BaiJamjuree({
@@ -29,7 +30,13 @@ export default function RootLayout({
         className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50`}
       >
         {children}
+        
+        {/*Stripes*/}
+        <div className="bg-stripes h-2" />
+
         {/*Sobre Nós*/}
+        <AboutUs />
+
         {/*Parceiros*/}
         {/*Footer*/}
       </body>
