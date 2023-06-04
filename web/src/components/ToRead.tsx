@@ -1,5 +1,3 @@
-'use client'
-
 import Image from "next/image";
 import Balance from "react-wrap-balancer";
 import Webb from "../assets/webb.png";
