@@ -1,3 +1,65 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  user-select: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.bg {
+  position: relative;
+  background-image: linear-gradient(to bottom, transparent 70%, #020C14);
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/Bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center -50px;
+  z-index: -1;
+}
+
+.opacity {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.title {
+  line-height: 120%;
+  letter-spacing: -0.75px;
+}
+
+.border-card1 {
+  border: 2px solid;
+  border-image: linear-gradient(to bottom right, #D22EE0, #2E6BE0);
+  border-image-slice: 1;
+}
+
+.border-card2 {
+  border: 2px solid;
+  border-image: linear-gradient(to bottom right, #5C4BC2, #2E6BE0);
+  border-image-slice: 1;
+}
+
+.border-card3 {
+  border: 2px solid;
+  border-image: linear-gradient(to bottom right, #5C4BC2, #D22EE0);
+  border-image-slice: 1;
+}
+
+.bg-stripes {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 12.5%, transparent 12.5%, transparent);
+    background-size: 8px 100%;
+}
