@@ -59,7 +59,19 @@ body {
   border-image-slice: 1;
 }
 
+.border-card1 ul, .border-card2 ul, .border-card3 ul {
+  list-style-type: circle;
+}
+
 .bg-stripes {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 12.5%, transparent 12.5%, transparent);
     background-size: 8px 100%;
+}
+
+.btn {
+  transition: all .2s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
