@@ -75,7 +75,7 @@ const ScrollAnimationExample = () => {
         </Fade>
       </Element>
 
-      {/* Restante do conteúdo da página */}
+       Restante do conteúdo da página 
     </div>
   );
 };

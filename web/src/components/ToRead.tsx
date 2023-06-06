@@ -23,7 +23,7 @@ export default function ToRead() {
           </Balance>
         </h2>
       </div>
-      <Image src={Webb} alt=""></Image>
+      <Image src={Webb} alt="" className="w-[38%]"></Image>
     </div>
   );
 }
