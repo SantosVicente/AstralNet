@@ -1,6 +1,6 @@
-import Image from "next/image";
-import Balance from "react-wrap-balancer";
-import Webb from "../assets/webb.png";
+import Image from 'next/image';
+import Balance from 'react-wrap-balancer';
+import Webb from '../assets/webb.png';
 
 export default function ToRead() {
   return (

@@ -1,22 +1,22 @@
-import "./globals.css";
+import './globals.css';
 import {
   Roboto_Flex as Roboto,
   Bai_Jamjuree as BaiJamjuree,
-} from "next/font/google";
+} from 'next/font/google';
 
-import Header from "@/components/Header";
-import AboutUs from "@/components/AboutUs";
+import AboutUs from '@/components/AboutUs';
+import Header from '@/components/Header';
 
-const roboto = Roboto({ subsets: ["latin"], variable: "--font-roboto" });
+const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
 const baiJamjuree = BaiJamjuree({
-  subsets: ["latin"],
-  weight: ["700"],
-  variable: "--font-bai-jamjure",
+  subsets: ['latin'],
+  weight: ['700'],
+  variable: '--font-bai-jamjure',
 });
 
 export const metadata = {
-  title: "Astral Nexus",
-  description: "A astronomia explicada de maneira simples",
+  title: 'Astral Nexus',
+  description: 'A astronomia explicada de maneira simples',
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50`}
       >
         {children}
-        
+
         {/*Stripes*/}
         <div className="bg-stripes h-2" />
 

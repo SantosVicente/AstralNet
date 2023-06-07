@@ -1,6 +1,4 @@
-import Image from "next/image";
-import Logo from "../app/icon.png";
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Header() {
   return (
@@ -27,7 +25,10 @@ export default function Header() {
         </li>
       </ul>
 
-      <Link href="" className="hover:text-zinc-50 text-zinc-400 font-alt mr-20 transition-colors">
+      <Link
+        href=""
+        className="hover:text-zinc-50 text-zinc-400 font-alt mr-20 transition-colors"
+      >
         Login
       </Link>
     </div>
