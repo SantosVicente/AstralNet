@@ -1,15 +1,15 @@
-import React from "react";
-import Link from "next/link";
-import { ChevronDown } from "lucide-react";
-import Balance from "react-wrap-balancer";
+import React from 'react';
+import Link from 'next/link';
+import { ChevronDown } from 'lucide-react';
+import Balance from 'react-wrap-balancer';
 
-import Header from "@/components/Header";
-import ToFind from "@/components/ToFind";
-import ToRead from "@/components/ToRead";
-import Cards from "@/components/Cards";
+import Header from '@/components/Header';
+import ToFind from '@/components/ToFind';
+import ToRead from '@/components/ToRead';
+import Cards from '@/components/Cards';
 
-import { Element } from "react-scroll";
-import { Fade } from "react-awesome-reveal";
+import { Element } from 'react-scroll';
+import { Fade } from 'react-awesome-reveal';
 
 export default function Home() {
   /*
@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <div className="bg">
-        <header className="h-16 w-full">
+        <header className="h-16 w-full z-50">
           <Header />
         </header>
         <main className="flex flex-col h-[92.5vh] w-full items-center justify-center">
@@ -61,6 +61,7 @@ export default function Home() {
           </div>
         </main>
       </div>
+
       <div className="mt-4 pt-72">
         <ToFind />
       </div>

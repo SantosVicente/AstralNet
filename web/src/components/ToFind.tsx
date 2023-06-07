@@ -1,14 +1,11 @@
-import Rocket from "../assets/rocket.svg";
-import Telescope from "../assets/telescope.svg";
-import Galaxy from "../assets/galaxy.svg";
-import Asteroid from "../assets/asteroid.svg";
-import Atom from "../assets/atom.svg";
-import Saturn from "../assets/saturn.svg";
-import Image from "next/image";
-import Balance from "react-wrap-balancer";
-
-import { Element } from "react-scroll";
-import { Fade } from "react-awesome-reveal";
+import Rocket from '../assets/rocket.svg';
+import Telescope from '../assets/telescope.svg';
+import Galaxy from '../assets/galaxy.svg';
+import Asteroid from '../assets/asteroid.svg';
+import Atom from '../assets/atom.svg';
+import Saturn from '../assets/saturn.svg';
+import Image from 'next/image';
+import Balance from 'react-wrap-balancer';
 
 export default function ToFind() {
   return (

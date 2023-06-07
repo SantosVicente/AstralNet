@@ -1,11 +1,5 @@
-import {
-  Rocket,
-  Orbit,
-  Satellite,
-  ArrowRight,
-  CornerDownRight,
-} from "lucide-react";
-import Link from "next/link";
+import { Rocket, Orbit, Satellite } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Cards() {
   return (

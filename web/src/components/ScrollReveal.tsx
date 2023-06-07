@@ -1,16 +1,16 @@
-"use client"
+'use client';
 
-import React from "react";
-import { Element } from "react-scroll";
-import { Fade } from "react-awesome-reveal";
-import Image from "next/image";
-import Balance from "react-wrap-balancer";
-import Rocket from "../assets/rocket.svg";
-import Telescope from "../assets/telescope.svg";
-import Galaxy from "../assets/galaxy.svg";
-import Asteroid from "../assets/asteroid.svg";
-import Atom from "../assets/atom.svg";
-import Saturn from "../assets/saturn.svg";
+import React from 'react';
+import { Element } from 'react-scroll';
+import { Fade } from 'react-awesome-reveal';
+import Image from 'next/image';
+import Balance from 'react-wrap-balancer';
+import Rocket from '../assets/rocket.svg';
+import Telescope from '../assets/telescope.svg';
+import Galaxy from '../assets/galaxy.svg';
+import Asteroid from '../assets/asteroid.svg';
+import Atom from '../assets/atom.svg';
+import Saturn from '../assets/saturn.svg';
 
 const ScrollAnimationExample = () => {
   return (
@@ -74,8 +74,7 @@ const ScrollAnimationExample = () => {
           </div>
         </Fade>
       </Element>
-
-       Restante do conteúdo da página 
+      Restante do conteúdo da página
     </div>
   );
 };
