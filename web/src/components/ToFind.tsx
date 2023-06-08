@@ -11,7 +11,7 @@ import ScrollAnimation from '../scrolls/ScrollReveal';
 export default function ToFind() {
   return (
     <div className="scroll-reveal flex flex-col gap-20 items-center justify-center">
-      <ScrollAnimation delay={0} duration={0.7} y={100}>
+      <ScrollAnimation delay={0} duration={0.9} y={150}>
         <h1 className="font-alt font-semibold text-5xl text-zinc-200">
           O QUE VOCÊ PODE ENCONTRAR
         </h1>
@@ -47,7 +47,7 @@ export default function ToFind() {
             </h2>
           </div>
         </ScrollAnimation>
-        <ScrollAnimation delay={0.3} duration={0.7} y={50}>
+        <ScrollAnimation delay={0.1} duration={0.7} y={50}>
           <div className="flex flex-col items-center gap-4">
             <Image src={Asteroid} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw]">
@@ -57,7 +57,7 @@ export default function ToFind() {
             </h2>
           </div>
         </ScrollAnimation>
-        <ScrollAnimation delay={0.4} duration={0.7} y={50}>
+        <ScrollAnimation delay={0.2} duration={0.7} y={50}>
           <div className="flex flex-col items-center gap-4">
             <Image src={Atom} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw]">
@@ -67,7 +67,7 @@ export default function ToFind() {
             </h2>
           </div>
         </ScrollAnimation>
-        <ScrollAnimation delay={0.5} duration={0.7} y={50}>
+        <ScrollAnimation delay={0.3} duration={0.7} y={50}>
           <div className="flex flex-col items-center gap-4">
             <Image src={Saturn} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw] flex-wrap">

@@ -1,4 +1,5 @@
 import ScrollAnimation from '@/scrolls/ScrollReveal';
+import ScrollAnimationX from '@/scrolls/ScrollReveal2';
 import { Rocket, Orbit, Satellite } from 'lucide-react';
 import Link from 'next/link';
 
@@ -6,12 +7,12 @@ export default function Cards() {
   return (
     <div className="flex flex-col gap-16 items-center">
       <div className="flex justify-between w-[82vw]">
-        <ScrollAnimation delay={0.2} duration={0.9} y={100}>
+        <ScrollAnimation delay={0.2} duration={0.9} y={150}>
           <h1 className="font-alt h1 uppercase font-bold w-[40rem]">
             Principais tópicos para você decolar conosco
           </h1>
         </ScrollAnimation>
-        <ScrollAnimation delay={0.4} duration={0.9} y={100}>
+        <ScrollAnimationX delay={0.4} duration={0.9} x={150}>
           <div className="flex flex-col gap-6">
             <div className="h-[0.1rem] rounded-md bg-zinc-600 w-20" />
             {/*Fazer este texto vir com delay e da direita para a esquerda*/}
@@ -20,7 +21,7 @@ export default function Cards() {
               visitar!
             </p>
           </div>
-        </ScrollAnimation>
+        </ScrollAnimationX>
       </div>
 
       <div className="w-full">

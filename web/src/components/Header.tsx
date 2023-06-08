@@ -3,6 +3,8 @@
 import React, { useEffect, useState } from 'react';
 import { User2 } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
+import Logo from '../app/icon.png';
 
 export default function Header() {
   const [scrollPosition, setScrollPosition] = useState<number>(0);
@@ -48,10 +50,11 @@ export default function Header() {
     >
       <div className="flex justify-between items-center font-bold w-full">
         <Link href="" className="flex gap-2 ml-10 items-center">
+          <Image src={Logo} alt="" width={50}/>
           <p className="text-3xl font-alt">Astral NET</p>
         </Link>
 
-        <ul className="flex gap-4 ml-16 font-alt text-zinc-400">
+        <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
             <Link href="" className="hover:text-zinc-50 transition-colors">
               Home
@@ -74,7 +77,7 @@ export default function Header() {
 
         <Link
           href=""
-          className="hover:text-zinc-50 flex items-center gap-2 text-zinc-400 font-alt mr-10 transition-colors"
+          className="hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt mr-10 transition-colors"
         >
           <div className="p-2 bg-zinc-400 bg-opacity-25 rounded-full">
             <User2 size={25} />
