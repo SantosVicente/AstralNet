@@ -5,11 +5,13 @@ import ScrollAnimation from '../scrolls/ScrollReveal';
 
 export default function ToRead() {
   return (
-    <ScrollAnimation y={100}>
-      <div className="flex items-center justify-center gap-36">
-        <div className="flex flex-col gap-8 max-w-3xl text-justify">
+    <div className="flex items-center justify-center gap-36">
+      <div className="flex flex-col gap-8 max-w-3xl text-justify">
+        <ScrollAnimation delay={0} duration={0.7} y={50}>
           <h1 className="text-4xl font-alt font-bold">TYPE SOME TITLE</h1>
-          <h2 className="text-xl font-thin">
+        </ScrollAnimation>
+        <h2 className="text-xl font-thin">
+          <ScrollAnimation delay={0.1} duration={0.7} y={50}>
             <Balance>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum
               explicabo neque a omnis voluptates veritatis tenetur porro, esse
@@ -23,10 +25,12 @@ export default function ToRead() {
               nobis consequatur accusantium provident vel sapiente quas repellat
               unde!
             </Balance>
-          </h2>
-        </div>
-        <Image src={Webb} alt="" className="w-[38%]"></Image>
+          </ScrollAnimation>
+        </h2>
       </div>
-    </ScrollAnimation>
+      <ScrollAnimation delay={0} duration={0.7} y={50}>
+        <Image src={Webb} alt="" className="w-full" />
+      </ScrollAnimation>
+    </div>
   );
 }

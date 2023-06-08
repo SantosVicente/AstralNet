@@ -11,9 +11,11 @@ import ScrollAnimation from '../scrolls/ScrollReveal';
 export default function ToFind() {
   return (
     <div className="scroll-reveal flex flex-col gap-20 items-center justify-center">
-      <h1 className="font-alt font-semibold text-5xl text-zinc-200">
-        O QUE VOCÊ PODE ENCONTRAR
-      </h1>
+      <ScrollAnimation delay={0} duration={0.7} y={100}>
+        <h1 className="font-alt font-semibold text-5xl text-zinc-200">
+          O QUE VOCÊ PODE ENCONTRAR
+        </h1>
+      </ScrollAnimation>
       <div className="grid grid-cols-3 grid-rows-2 gap-x-52 gap-y-16 text-zinc-200 font-alt text-4xl">
         <ScrollAnimation delay={0} duration={0.7} y={50}>
           <div className="flex flex-col items-center gap-4">
