@@ -6,11 +6,12 @@ import {
 
 import AboutUs from '@/components/AboutUs';
 import Header from '@/components/Header';
+import FixedHeader from '@/scrolls/ScrollHeader';
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
 const baiJamjuree = BaiJamjuree({
   subsets: ['latin'],
-  weight: ['700'],
+  weight: ['200','300', '400', '500', '600', '700'],
   variable: '--font-bai-jamjure',
 });
 
@@ -27,8 +28,11 @@ export default function RootLayout({
   return (
     <html lang="pt-br">
       <body
-        className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50`}
+        className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
       >
+        <header className="h-16 w-full z-50 fixed">
+          <Header />
+        </header>
         {children}
 
         {/*Stripes*/}
