@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import ToFind from '@/components/ToFind';
 import ToRead from '@/components/ToRead';
 import Cards from '@/components/Cards';
+import BlurComponent from '@/components/Balls';
 
 import { Element } from 'react-scroll';
 import { Fade } from 'react-awesome-reveal';
@@ -23,12 +24,10 @@ export default function Home() {
   return (
     <div className="overflow-hidden">
       <div className="bg">
-        <header className="h-16 w-full z-50">
-          <Header />
-        </header>
+        <div className="h-16" />
         <main className="flex flex-col h-[92.5vh] w-full items-center justify-center">
           <div className="pl-24 w-screen h-[90vh]  flex flex-col justify-center gap-6">
-            <h1 className="font-alt text-5xl title max-w-[720px] scroll-reveal">
+            <h1 className="font-alt font-bold text-5xl title max-w-[720px] scroll-reveal">
               <Balance>A ASTRONOMIA DESVENDADA DE MANEIRA SIMPLES</Balance>
             </h1>
             <p className="scroll-reveal text-lg max-w-[670px]  title text-zinc-300 text-opacity-90 text-justify">
@@ -62,6 +61,7 @@ export default function Home() {
         </main>
       </div>
 
+      <BlurComponent top="175vh" left="90vw" />
       <div className="mt-4 pt-72">
         <ToFind />
       </div>

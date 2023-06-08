@@ -13,9 +13,10 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+
 .bg {
   position: relative;
-  background-image: linear-gradient(to bottom, transparent 70%, #020C14);
+  background-image: linear-gradient(to bottom, transparent 60%, #020C14);
 }
 
 .bg::after {
