@@ -6,7 +6,6 @@ import {
 
 import AboutUs from '@/components/AboutUs';
 import Header from '@/components/Header';
-import FixedHeader from '@/scrolls/ScrollHeader';
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
 const baiJamjuree = BaiJamjuree({
@@ -30,9 +29,9 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
       >
-        <header className="h-16 w-full z-50 fixed">
-          <Header />
-        </header>
+        
+        <Header />
+        
         {children}
 
         {/*Stripes*/}
