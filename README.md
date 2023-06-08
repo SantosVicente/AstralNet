@@ -22,7 +22,7 @@ Projeto Desenvolvido para a BRAGANTEC 2023 na disciplina de Projeto Integrador 2
 ## Instalação
 
 1. Clone este repositório em sua máquina local:
-  - git clone https://github.com/SantosVicente/AstralNexus.git
+  - git clone https://github.com/SantosVicente/AstralNet.git
 
 2. Instale as dependências do projeto:
   - 'npm install'
