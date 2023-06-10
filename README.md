@@ -1,4 +1,4 @@
-# Projeto Integrador 2: A Desinformação na Astronomia 
+# Astral NET: A Desinformação na Astronomia 
 
 Este repositório contém o código-fonte do nosso projeto sobre Astronomia, um website desenvolvido com o objetivo de combater a desinformação e promover o conhecimento sobre astronomia. O site oferece informações precisas e confiáveis, além de recursos interativos para engajar os usuários. Sua realização é baseada na pesquisa feita pelos colaboradores desse projeto com o auxílio de professores, essa pesquisa foi feita em artigos, pesquisas de campo e exploratórias, usando o método científico para entender esses déficts de conhecimento e combatê-lo de uma forma agradável e não maçante. 
 
