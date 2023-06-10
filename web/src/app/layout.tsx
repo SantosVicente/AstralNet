@@ -15,7 +15,7 @@ const baiJamjuree = BaiJamjuree({
 });
 
 export const metadata = {
-  title: 'Astral Nexus',
+  title: 'Astral NET',
   description: 'A astronomia explicada de maneira simples',
 };
 
