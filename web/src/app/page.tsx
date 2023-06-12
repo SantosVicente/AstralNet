@@ -15,7 +15,7 @@ export default function Home() {
       <div className="bg">
         <div className="h-16" />
         <main className="flex flex-col h-[92.5vh] w-full items-center justify-center">
-          <div className="pl-24 w-screen h-[90vh]  flex flex-col justify-center gap-6">
+          <div className="pl-[5%] w-screen h-[90vh]  flex flex-col justify-center gap-6">
             <h1 className="font-alt font-bold text-5xl title max-w-[720px] scroll-reveal">
               <Balance>A ASTRONOMIA DESVENDADA DE MANEIRA SIMPLES</Balance>
             </h1>
@@ -49,7 +49,7 @@ export default function Home() {
           </div>
         </main>
       </div>
-      
+
       <ScrollAnimation delay={0} duration={0.9} y={150}>
         <div className="w-screen flex mt-16 -mb-52 justify-center">
           <div className="w-[0.01rem] h-96 bg-zinc-500 rounded-md" />

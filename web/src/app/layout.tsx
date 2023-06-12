@@ -10,7 +10,7 @@ import Header from '@/components/Header';
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
 const baiJamjuree = BaiJamjuree({
   subsets: ['latin'],
-  weight: ['200','300', '400', '500', '600', '700'],
+  weight: ['200', '300', '400', '500', '600', '700'],
   variable: '--font-bai-jamjure',
 });
 
@@ -29,9 +29,8 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
       >
-        
         <Header />
-        
+
         {children}
 
         {/*Stripes*/}

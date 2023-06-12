@@ -1,12 +1,20 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import { User2 } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
+
+import { User2 } from 'lucide-react';
 import Logo from '../app/icon.png';
+import Profile from '../assets/profile.png';
+
+interface User {
+  id: number;
+  name: string;
+}
 
 export default function Header() {
+  const [user, setUser] = useState<User | null>(null);
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [headerBackground, setHeaderBackground] =
     useState<string>('transparent');
@@ -34,7 +42,7 @@ export default function Header() {
         setHeaderBackground('rgba(2, 12, 20, 0.7)');
       } else if (scrollPosition > 50) {
         setHeaderBackground('rgba(2, 12, 20, 0.5)');
-      } else if(scrollPosition <= 50){
+      } else if (scrollPosition <= 50) {
         setHeaderBackground('transparent');
       }
     };
@@ -42,15 +50,27 @@ export default function Header() {
     calculateBackground();
   }, [scrollPosition]);
 
+  const handleLogin = () => {
+    const loggedInUser: User = {
+      id: 1,
+      name: 'John Doe',
+    };
+    setUser(loggedInUser);
+  };
+
+  const handleLogout = () => {
+    setUser(null);
+  };
+
   return (
-    <header
-      className="h-16 w-screen z-50 fixed headerBg flex items-center"
+    <div
+      className="h-16 w-screen z-50 fixed headerBg flex items-center px-[2%]"
       style={{ backgroundColor: headerBackground }}
       id="header"
     >
       <div className="flex justify-between items-center font-bold w-full">
-        <Link href="" className="flex gap-2 ml-10 items-center">
-          <Image src={Logo} alt="" width={50}/>
+        <Link href="" className="flex gap-2 items-center">
+          <Image src={Logo} alt="" width={50} />
           <p className="text-3xl font-alt">Astral NET</p>
         </Link>
 
@@ -75,19 +95,40 @@ export default function Header() {
           </li>
         </ul>
 
-        <Link
-          href=""
-          className="hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt mr-10 transition-colors"
-        >
-          <div className="p-2 bg-zinc-400 bg-opacity-25 rounded-full">
-            <User2 size={25} />
-          </div>
-          <p className="w-40 text-sm font-semibold">
-            <span className="underline">Crie sua conta</span> e viaje pelo
-            cosmos!
-          </p>
-        </Link>
+        {user ? (
+          <Link
+            href=""
+            className="flex items-center gap-2 text-zinc-50 font-alt transition-colors"
+          >
+            <Image src={Profile} width={45} className="rounded-full" alt="" />
+            <div>
+              <p className="w-40 text-sm font-semibold">
+                Bem vindo <span className="font-bold">{user.name}</span>
+              </p>
+              <p
+                className="text-xs hover:text-zinc-100 text-zinc-400"
+                onClick={handleLogout}
+              >
+                Clique para Sair
+              </p>
+            </div>
+          </Link>
+        ) : (
+          <Link
+            href=""
+            onClick={handleLogin}
+            className="hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt transition-colors"
+          >
+            <div className="p-2 bg-zinc-400 bg-opacity-25 rounded-full">
+              <User2 size={25} />
+            </div>
+            <p className="w-40 text-sm font-semibold">
+              <span className="underline">Crie sua conta</span> e viaje pelo
+              cosmos!
+            </p>
+          </Link>
+        )}
       </div>
-    </header>
+    </div>
   );
 }

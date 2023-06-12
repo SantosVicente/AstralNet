@@ -21,9 +21,8 @@ export default function ToFind() {
           <div className="flex flex-col items-center gap-4">
             <Image src={Rocket} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw]">
-              <Balance>
-                Type some information here, can be anything you want
-              </Balance>
+              Descubra a verdade por trás dos mitos populares sobre astronomia
+              de forma simples e acessível
             </h2>
           </div>
         </ScrollAnimation>
@@ -31,9 +30,8 @@ export default function ToFind() {
           <div className="flex flex-col items-center gap-4">
             <Image src={Telescope} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw]">
-              <Balance>
-                Type some information here, can be anything you want
-              </Balance>
+              Explore guias fáceis de entender que simplificam conceitos
+              complexos da astronomia
             </h2>
           </div>
         </ScrollAnimation>
@@ -41,9 +39,8 @@ export default function ToFind() {
           <div className="flex flex-col items-center gap-4">
             <Image src={Galaxy} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw]">
-              <Balance>
-                Type some information here, can be anything you want
-              </Balance>
+              Maravilhe-se com curiosidades fascinantes sobre o espaço sideral
+              que irão surpreender e encantar
             </h2>
           </div>
         </ScrollAnimation>
@@ -51,9 +48,8 @@ export default function ToFind() {
           <div className="flex flex-col items-center gap-4">
             <Image src={Asteroid} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw]">
-              <Balance>
-                Type some information here, can be anything you want
-              </Balance>
+              Obtenha respostas claras e simples para suas perguntas sobre o
+              universo e o estudo da astronomia
             </h2>
           </div>
         </ScrollAnimation>
@@ -61,9 +57,8 @@ export default function ToFind() {
           <div className="flex flex-col items-center gap-4">
             <Image src={Atom} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw]">
-              <Balance>
-                Type some information here, can be anything you want
-              </Balance>
+              Descubra como explorar o céu noturno e observar fenômenos
+              astronômicos por conta própria
             </h2>
           </div>
         </ScrollAnimation>
@@ -71,9 +66,8 @@ export default function ToFind() {
           <div className="flex flex-col items-center gap-4">
             <Image src={Saturn} width={70} alt="" />
             <h2 className="text-center font-rob text-2xl w-[15vw] flex-wrap">
-              <Balance>
-                Type some information here, can be anything you want
-              </Balance>
+              Tenha contato com a diversidade de elementos do universo que estão
+              presente em nossa volta
             </h2>
           </div>
         </ScrollAnimation>
