@@ -3,30 +3,19 @@ import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import Balance from 'react-wrap-balancer';
 
-import Header from '@/components/Header';
 import ToFind from '@/components/ToFind';
 import ToRead from '@/components/ToRead';
 import Cards from '@/components/Cards';
 import BlurComponent from '@/components/Balls';
-
-import { Element } from 'react-scroll';
-import { Fade } from 'react-awesome-reveal';
+import ScrollAnimation from '../scrolls/ScrollReveal';
 
 export default function Home() {
-  /*
-  <ScrollRevealComponent>
-    <p className="scroll-reveal text-5xl font-bold">
-      Bem vindo ao Astral Nexus
-    </p>
-  </ScrollRevealComponent>;
-  */
-
   return (
     <div className="overflow-hidden">
       <div className="bg">
         <div className="h-16" />
         <main className="flex flex-col h-[92.5vh] w-full items-center justify-center">
-          <div className="pl-24 w-screen h-[90vh]  flex flex-col justify-center gap-6">
+          <div className="pl-[5%] w-screen h-[90vh]  flex flex-col justify-center gap-6">
             <h1 className="font-alt font-bold text-5xl title max-w-[720px] scroll-reveal">
               <Balance>A ASTRONOMIA DESVENDADA DE MANEIRA SIMPLES</Balance>
             </h1>
@@ -50,7 +39,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="w-full mt-auto h-[10%] flex items-start justify-center">
+          <div className="w-screen ml-3 mt-auto h-[10%] flex items-start justify-center">
             <div className="flex flex-col items-center gap-1 opacity-60">
               <div className="flex p-2 bg-purple-500 rounded-full">
                 <ChevronDown size={25} />
@@ -60,6 +49,12 @@ export default function Home() {
           </div>
         </main>
       </div>
+
+      <ScrollAnimation delay={0} duration={0.9} y={150}>
+        <div className="w-screen flex mt-16 -mb-52 justify-center">
+          <div className="w-[0.01rem] h-96 bg-zinc-500 rounded-md" />
+        </div>
+      </ScrollAnimation>
 
       <BlurComponent top="175vh" left="90vw" />
       <div className="mt-4 pt-72">

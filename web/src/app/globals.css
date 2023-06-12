@@ -13,20 +13,23 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+.headerBg {
+  transition: background-color 0.3s ease;
+}
 
 .bg {
   position: relative;
-  background-image: linear-gradient(to bottom, transparent 60%, #020C14);
+  background-image: linear-gradient(to bottom, transparent 60%, #020c14);
 }
 
 .bg::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../assets/Bg.png');
+  background-image: url('../assets/Bg.jpg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center -50px;
@@ -41,38 +44,51 @@ body {
   line-height: 120%;
   letter-spacing: -0.75px;
 }
-
+/*
 .border-card1 {
   border: 2px solid;
-  border-image: linear-gradient(to bottom right, #D22EE0, #2E6BE0);
+  border-image: linear-gradient(to bottom right, #d22ee0, #2e6be0);
   border-image-slice: 1;
 }
 
 .border-card2 {
   border: 2px solid;
-  border-image: linear-gradient(to bottom right, #5C4BC2, #2E6BE0);
+  border-image: linear-gradient(to bottom right, #5c4bc2, #2e6be0);
   border-image-slice: 1;
 }
 
 .border-card3 {
   border: 2px solid;
-  border-image: linear-gradient(to bottom right, #5C4BC2, #D22EE0);
+  border-image: linear-gradient(to bottom right, #5c4bc2, #d22ee0);
   border-image-slice: 1;
 }
-
-.border-card1 ul, .border-card2 ul, .border-card3 ul {
+*/
+.border-card1 ul,
+.border-card2 ul,
+.border-card3 ul {
   list-style-type: circle;
 }
 
 .bg-stripes {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1) 12.5%, transparent 12.5%, transparent);
-    background-size: 8px 100%;
+  background-image: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0.1) 12.5%,
+    transparent 12.5%,
+    transparent
+  );
+  background-size: 8px 100%;
 }
 
 .btn {
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
 .btn:hover {
   transform: scale(1.1);
+}
+
+.h1 {
+  font-size: 2.7rem;
+  line-height: 3.5rem;
 }

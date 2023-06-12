@@ -6,17 +6,16 @@ import {
 
 import AboutUs from '@/components/AboutUs';
 import Header from '@/components/Header';
-import FixedHeader from '@/scrolls/ScrollHeader';
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
 const baiJamjuree = BaiJamjuree({
   subsets: ['latin'],
-  weight: ['200','300', '400', '500', '600', '700'],
+  weight: ['200', '300', '400', '500', '600', '700'],
   variable: '--font-bai-jamjure',
 });
 
 export const metadata = {
-  title: 'Astral Nexus',
+  title: 'Astral NET',
   description: 'A astronomia explicada de maneira simples',
 };
 
@@ -30,9 +29,8 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
       >
-        <header className="h-16 w-full z-50 fixed">
-          <Header />
-        </header>
+        <Header />
+
         {children}
 
         {/*Stripes*/}
