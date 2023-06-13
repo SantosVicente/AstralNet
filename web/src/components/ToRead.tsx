@@ -6,7 +6,7 @@ import ScrollAnimationX from '../scrolls/ScrollReveal2';
 
 export default function ToRead() {
   return (
-    <div className="flex items-center justify-center gap-32 overflow-x-hidden">
+    <div className="flex items-center justify-center gap-32 overflow-hidden">
       <div className="flex flex-col gap-6 w-[46rem] text-justify">
         <ScrollAnimationX delay={0} duration={0.7} x={-100}>
           <h1 className="text-4xl font-alt font-bold uppercase">
@@ -35,7 +35,9 @@ export default function ToRead() {
         </ScrollAnimation>
       </div>
       <ScrollAnimation delay={0} duration={0.7} y={100}>
-        <Image src={Webb} alt="" width={600} />
+        <div className='py-16'>
+          <Image src={Webb} alt="" width={600} />
+        </div>
       </ScrollAnimation>
     </div>
   );
