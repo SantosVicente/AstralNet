@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Cards() {
   return (
-    <div className="flex flex-col gap-16 items-center">
+    <div className="relative  flex flex-col gap-16 items-center">
       <div className="flex justify-between w-[82vw] px-10">
         <ScrollAnimation delay={0.2} duration={0.9} y={150}>
           <h1 className="font-alt h1 uppercase font-bold w-[40rem]">
@@ -23,13 +23,13 @@ export default function Cards() {
         </ScrollAnimationX>
       </div>
 
-      <div className="w-full">
-        <div className="flex gap-28 mx-[12.5rem] justify-center">
+      <div className="relative w-full lg:w-[80vw]">
+        <div className="lg:overflow-x-scroll overflow-hidden w-full flex gap-28 lg:gap-0 justify-center lg:justify-start">
           <ScrollAnimation delay={0} duration={0.7} y={100}>
             <Link
               href=""
               id="card1"
-              className="border-card1 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
+              className="border-card1 lg:scale-90 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
             >
               <Rocket size={60} className="mt-[15%]" />
               <div className="mt-4">
@@ -52,7 +52,7 @@ export default function Cards() {
             <Link
               href=""
               id="card2"
-              className="border-card2 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
+              className="border-card2 lg:scale-90 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
             >
               <Orbit size={60} className="mt-[15%]" />
               <div className="mt-4">
@@ -75,7 +75,7 @@ export default function Cards() {
             <Link
               href=""
               id="card3"
-              className="border-card3 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
+              className="border-card3 border lg:scale-90 border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
             >
               <Satellite size={70} className="mt-[15%]" />
               <div className="mt-4">

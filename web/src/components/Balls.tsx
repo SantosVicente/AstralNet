@@ -9,7 +9,7 @@ interface BlurComponentProps {
 
 const BlurComponent: React.FC<BlurComponentProps> = ({ top, left }) => {
   const style: React.CSSProperties = {
-    position: 'absolute',
+    position: 'relative',
     top: top,
     left: left,
     filter: 'blur(200px)',
@@ -17,7 +17,7 @@ const BlurComponent: React.FC<BlurComponentProps> = ({ top, left }) => {
 
   return (
     <div
-      className="w-[250px] h-[250px] bg-pink-500 rounded-full -z-[1]"
+      className="overflow-x-hidden w-[250px] h-[250px] bg-pink-500 rounded-full -z-[1]"
       style={style}
     />
   );
