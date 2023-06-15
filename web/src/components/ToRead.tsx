@@ -6,8 +6,8 @@ import ScrollAnimationX from '../scrolls/ScrollReveal2';
 
 export default function ToRead() {
   return (
-    <div className="flex items-center md:w-[85vw] md:ml-[7.5vw] justify-center gap-32 overflow-hidden">
-      <div className="flex flex-col gap-6 w-[46rem] md:w-[80vw] text-justify">
+    <div className="flex items-center md:w-[85vw] md:ml-[7.5vw] justify-between mx-[10%] overflow-hidden">
+      <div className="flex flex-col gap-6 w-[46rem] xl:w-full md:w-[80vw] text-justify">
         <ScrollAnimationX delay={0} duration={0.7} x={-100}>
           <h1 className="text-4xl md:mb-3 font-alt font-bold uppercase">
             Desvende o cosmos
@@ -35,7 +35,7 @@ export default function ToRead() {
         </ScrollAnimation>
       </div>
       <ScrollAnimation delay={0} duration={0.7} y={100}>
-        <div className='py-16'>
+        <div className='py-16 mx-8 xl:hidden xl:py-0 xl:mx-0'>
           <Image src={Webb} alt="" width={600} className='md:w-[50rem]'/>
         </div>
       </ScrollAnimation>

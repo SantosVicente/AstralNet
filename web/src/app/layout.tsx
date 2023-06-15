@@ -4,6 +4,7 @@ import {
   Bai_Jamjuree as BaiJamjuree,
 } from 'next/font/google';
 
+import Parceiros from '@/components/Parceiros';
 import AboutUs from '@/components/AboutUs';
 import Header from '@/components/Header';
 
@@ -36,10 +37,11 @@ export default function RootLayout({
         {/*Stripes*/}
         <div className="bg-stripes h-2" />
 
+        {/*Parceiros*/}
+        <Parceiros />
+
         {/*Sobre Nós*/}
         <AboutUs />
-
-        {/*Parceiros*/}
         {/*Footer*/}
       </body>
     </html>
