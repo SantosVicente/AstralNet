@@ -6,15 +6,15 @@ import ScrollAnimationX from '../scrolls/ScrollReveal2';
 
 export default function ToRead() {
   return (
-    <div className="flex items-center justify-center gap-32 overflow-hidden">
-      <div className="flex flex-col gap-6 w-[46rem] text-justify">
+    <div className="flex items-center md:w-[85vw] md:ml-[7.5vw] justify-center gap-32 overflow-hidden">
+      <div className="flex flex-col gap-6 w-[46rem] md:w-[80vw] text-justify">
         <ScrollAnimationX delay={0} duration={0.7} x={-100}>
-          <h1 className="text-4xl font-alt font-bold uppercase">
+          <h1 className="text-4xl md:mb-3 font-alt font-bold uppercase">
             Desvende o cosmos
           </h1>
         </ScrollAnimationX>
         <ScrollAnimation delay={0.1} duration={0.7} y={100}>
-          <h2 className="text-xl font-thin">
+          <h2 className="text-xl font-thin md:text-[1rem]">
             <Balance>
               Descubra um universo de conhecimento e desvende os segredos
               cósmicos! Bem-vindo a Astral NET, um portal repleto de maravilhas
@@ -36,7 +36,7 @@ export default function ToRead() {
       </div>
       <ScrollAnimation delay={0} duration={0.7} y={100}>
         <div className='py-16'>
-          <Image src={Webb} alt="" width={600} />
+          <Image src={Webb} alt="" width={600} className='md:w-[50rem]'/>
         </div>
       </ScrollAnimation>
     </div>

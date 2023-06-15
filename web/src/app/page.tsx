@@ -14,9 +14,9 @@ export default function Home() {
     <div className="overflow-hidden">
       <div className="bg">
         <div className="h-16" />
-        <main className="flex flex-col h-[92.5vh] w-full items-center justify-center">
-          <div className="pl-[5%] w-screen h-[90vh]  flex flex-col justify-center gap-6">
-            <h1 className="font-alt font-bold text-5xl title max-w-[720px] scroll-reveal">
+        <main className="flex flex-col h-[92.5vh] relative w-full items-center justify-center">
+          <div className="pl-[5%] w-screen h-[90vh] md:w-[65vw] absolute left-0 flex flex-col justify-center gap-6">
+            <h1 className="font-alt font-bold text-5xl md:text-[2.7rem] title title max-w-[720px] scroll-reveal">
               <Balance>A ASTRONOMIA DESVENDADA DE MANEIRA SIMPLES</Balance>
             </h1>
             <p className="scroll-reveal text-lg max-w-[670px]  title text-zinc-300 text-opacity-90 text-justify">
@@ -51,7 +51,7 @@ export default function Home() {
       </div>
 
       <ScrollAnimation delay={0} duration={0.9} y={150}>
-        <div className="w-screen flex mt-16 -mb-52 justify-center">
+        <div className="w-screen flex mt-16 -mb-52 md:-mb-[28rem] justify-center">
           <div className="w-[0.01rem] h-96 bg-zinc-500 rounded-md " />
         </div>
       </ScrollAnimation>
