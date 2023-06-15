@@ -15,10 +15,10 @@ export default function Parceiros() {
 
       <div className='flex gap-36 mt-16'>
         <Link href="https://portal.cmp.ifsp.edu.br/" target='_blank'>
-          <Image src={ifsp} alt='' width={170}></Image>
+          <Image src={ifsp} alt='' width={170} className='md:w-[10rem]'></Image>
         </Link>
         <Link href="https://www.nasa.gov/" target='_blank'>
-          <Image src={nasa} alt='' width={290}></Image>
+          <Image src={nasa} alt='' width={290} className='md:w-[16rem] md:mb-11'></Image>
         </Link>
       </div>
     </div>
