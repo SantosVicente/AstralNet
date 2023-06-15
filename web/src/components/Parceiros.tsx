@@ -6,7 +6,7 @@ import nasa from '../assets/NasaLogo.png';
 export default function Parceiros() {
   return (
     <div
-      className="border-t border-zinc-700 flex-col pt-24 gap-8 bg-zinc-950 flex items-center justify-center overflow-hidden"
+      className="border-t border-zinc-700 flex-col pt-24 pb-16 gap-8 bg-gray-950 flex items-center justify-center overflow-hidden"
     >
       <h1 className="uppercase font-alt font-bold text-4xl">Parceiros</h1>
       <h2 className="text-lg">
