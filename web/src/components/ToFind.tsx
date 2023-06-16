@@ -15,7 +15,7 @@ export default function ToFind() {
           O QUE VOCÊ PODE ENCONTRAR
         </h1>
       </ScrollAnimation>
-      <div className="grid grid-cols-3 grid-rows-2 gap-x-5 gap-y-16 text-zinc-200 font-alt w-[90vw] text-4xl">
+      <div className="grid grid-cols-3 grid-rows-2 gap-y-16 text-zinc-200 font-alt w-[90vw] text-4xl">
         <ScrollAnimation delay={0} duration={0.7} y={50}>
           <div className="flex flex-col items-center gap-4">
             <Image src={Rocket} width={70} alt="" />

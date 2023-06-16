@@ -44,7 +44,7 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      <h1 className='mt-8 flex justify-center'>© 2023 Campinas-SP BRA, INC. ALL RIGHTS RESERVED</h1>
+      <h1 className='mt-8 flex justify-center'>2023 © AstralNET | Campinas-SP BRA, Todos os direitos reservados</h1>
     </div>
   );
 }
