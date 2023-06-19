@@ -7,12 +7,12 @@ export default function Cards() {
   return (
     <div className="relative flex flex-col gap-16 items-center">
       <div className="flex xl:flex-col xl:gap-8 md:flex-row md:gap-0 justify-between w-[82vw] px-10">
-        <ScrollAnimation delay={0.2} duration={0.9} y={150}>
+        <ScrollAnimation delay={0.1} duration={0.3} y={150}>
           <h1 className="font-alt h1 uppercase font-bold w-[40rem]">
             Principais tópicos para você decolar conosco
           </h1>
         </ScrollAnimation>
-        <ScrollAnimationX delay={0.4} duration={0.9} x={150}>
+        <ScrollAnimationX delay={0.2} duration={0.3} x={150}>
           <div className="flex flex-col gap-6 md:hidden">
             <div className="h-[0.1rem] rounded-md bg-zinc-600 w-20" />
             <p className="text-lg">
@@ -25,7 +25,7 @@ export default function Cards() {
 
       <div className="relative w-full xl:w-[80vw]">
         <div className="xl:overflow-x-scroll overflow-hidden 2xl:gap-[2%] w-full h-[30rem] flex gap-[5%] xl:gap-0 justify-center xl:justify-start">
-          <ScrollAnimation delay={0} duration={0.7} y={100}>
+          <ScrollAnimation delay={0.1} duration={0.3} y={100}>
             <Link
               href=""
               id="card1"
@@ -48,7 +48,7 @@ export default function Cards() {
               </div>
             </Link>
           </ScrollAnimation>
-          <ScrollAnimation delay={0.2} duration={0.7} y={100}>
+          <ScrollAnimation delay={0.3} duration={0.3} y={100}>
             <Link
               href=""
               id="card2"
@@ -71,7 +71,7 @@ export default function Cards() {
               </div>
             </Link>
           </ScrollAnimation>
-          <ScrollAnimation delay={0.4} duration={0.7} y={100}>
+          <ScrollAnimation delay={0.4} duration={0.3} y={100}>
             <Link
               href=""
               id="card3"
