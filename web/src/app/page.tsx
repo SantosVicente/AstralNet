@@ -50,7 +50,7 @@ export default function Home() {
         </main>
       </div>
 
-      <ScrollAnimation delay={0} duration={0.9} y={150}>
+      <ScrollAnimation delay={0} duration={0.3} y={150}>
         <div className="w-screen flex mt-16 -mb-52 md:-mb-[28rem] justify-center">
           <div className="w-[0.01rem] h-96 bg-zinc-500 rounded-md " />
         </div>

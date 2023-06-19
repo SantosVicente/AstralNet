@@ -8,12 +8,12 @@ export default function ToRead() {
   return (
     <div className="flex items-center md:w-[85vw] md:ml-[7.5vw] justify-between mx-[7%] overflow-hidden">
       <div className="flex flex-col gap-6 w-[55rem] xl:w-full md:w-[80vw] text-justify">
-        <ScrollAnimationX delay={0} duration={0.7} x={-100}>
+        <ScrollAnimationX delay={0} duration={0.3} x={-100}>
           <h1 className="text-4xl md:mb-3 pl-[7%] xl:pr-[7%] sm:text-3xl font-alt font-bold uppercase">
             Desvende o cosmos
           </h1>
         </ScrollAnimationX>
-        <ScrollAnimation delay={0.1} duration={0.7} y={100}>
+        <ScrollAnimation delay={0} duration={0.3} y={100}>
           <h2 className="text-xl font-thin pl-[7%] xl:pr-[7%] md:text-[1rem]">
             <Balance>
               Descubra um universo de conhecimento e desvende os segredos
@@ -34,7 +34,7 @@ export default function ToRead() {
           </h2>
         </ScrollAnimation>
       </div>
-      <ScrollAnimation delay={0} duration={0.7} y={100}>
+      <ScrollAnimation delay={0.2} duration={0.3} y={100}>
         <div className='py-16 mx-8 xl:hidden xl:py-0 xl:mx-0'>
           <Image src={Webb} alt="" width={600} className='md:w-[50rem]'/>
         </div>
