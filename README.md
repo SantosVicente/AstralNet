@@ -7,7 +7,7 @@ Projeto Desenvolvido para a BRAGANTEC 2023 na disciplina de Projeto Integrador 2
 ## Tecnologias que iremos utilizadar
 
 - Front-end: Next.js, TypeScript, Tailwind CSS, axios, etc.
-- Back-end: Prisma, MongoDB, Express, Node.js, etc.
+- Back-end: Prisma, SQLite, Express, Node.js, etc.
 
 ## Funcionalidades
 
