@@ -9,12 +9,29 @@ import Logo from '../app/icon.png';
 import Profile from '../assets/profile.png';
 
 interface User {
+  user: any;
   id: number;
   name: string;
 }
 
 export default function Header() {
   const [user, setUser] = useState<User | null>(null);
+
+  const handleLoginClick = async () => {
+    try {
+      const response = await fetch('http://localhost:3000/users/1');
+      if (response.ok) {
+        const data = await response.json();
+        setUser(data);
+      } else {
+        console.log('Erro ao obter os dados do usuário');
+      }
+    } catch (error) {
+      console.log('Erro na requisição', error);
+    }
+  };
+
+
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [headerBackground, setHeaderBackground] =
     useState<string>('transparent');
@@ -50,14 +67,14 @@ export default function Header() {
     calculateBackground();
   }, [scrollPosition]);
 
-  const handleLogin = () => {
+  /*const handleLogin = () => {
     const loggedInUser: User = {
       id: 1,
       name: 'John Doe',
     };
     setUser(loggedInUser);
   };
-
+*/
   const handleLogout = () => {
     setUser(null);
   };
@@ -103,7 +120,7 @@ export default function Header() {
             <Image src={Profile} width={45} className="rounded-full" alt="" />
             <div>
               <p className="w-40 text-sm font-semibold">
-                Bem vindo <span className="font-bold">{user.name}</span>
+                Bem vindo <span className="font-bold">{user.user.name}</span>
               </p>
               <p
                 className="text-xs hover:text-zinc-100 text-zinc-400"
@@ -116,7 +133,7 @@ export default function Header() {
         ) : (
           <Link
             href=""
-            onClick={handleLogin}
+            onClick={handleLoginClick}
             className="hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt transition-colors"
           >
             <div className="p-2 bg-zinc-400 bg-opacity-25 rounded-full">
