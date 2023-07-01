@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "framework": "node",
-  "name": "server",
   "builds": [
     {
       "src": "index.js",
