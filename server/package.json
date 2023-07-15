@@ -1,22 +1,25 @@
 {
-  "name": "server",
+  "name": "teste-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "teste",
   "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "test": "test",
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@prisma/client": "^4.16.2",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.3.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.22",
-    "prisma": "^4.16.2"
+    "nodemon": "^2.0.22"
   }
 }
