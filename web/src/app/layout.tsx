@@ -27,9 +27,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body
-        className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
-      >
+      <body className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}>
         <Header />
 
         {children}
