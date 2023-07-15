@@ -3,26 +3,34 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { apiRoute } from '@/slices/apiRoute';
 
 import { User2 } from 'lucide-react';
 import Logo from '../app/icon.png';
 import Profile from '../assets/profile.png';
 
 interface User {
-  user: any;
-  id: number;
+  _id: string;
+  idOauth: string;
   name: string;
+  email: string;
+  image: string;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
 }
 
 export default function Header() {
   const [user, setUser] = useState<User | null>(null);
 
+  const api = apiRoute();
+  
   const handleLoginClick = async () => {
     try {
-      const response = await fetch('http://localhost:3000/users/1');
+      const response = await fetch(api + 'users/64ab0d92c3cf2012fe98bd83');
       if (response.ok) {
         const data = await response.json();
-        setUser(data);
+        setUser(data.data);
       } else {
         console.log('Erro ao obter os dados do usuário');
       }
@@ -120,7 +128,7 @@ export default function Header() {
             <Image src={Profile} width={45} className="rounded-full" alt="" />
             <div>
               <p className="w-40 text-sm font-semibold">
-                Bem vindo <span className="font-bold">{user.user.name}</span>
+                Bem vindo <span className="font-bold">{user.name}</span>
               </p>
               <p
                 className="text-xs hover:text-zinc-100 text-zinc-400"

@@ -1,12 +1,15 @@
 const mongoose = require("mongoose");
+require('dotenv').config();
+
 
 async function main() {
   try {
     mongoose.set("strictQuery", true);
 
-    await mongoose.connect(
-      "mongodb+srv://SantosVicente:3azzkOs2HE7n633n@cluster0.lg5qnt2.mongodb.net/?retryWrites=true&w=majority"
-    );
+    await mongoose.connect(process.env.MONGODB_URI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
 
     console.log("Conectado ao MongoDB Atlas");
   } catch (error) {
