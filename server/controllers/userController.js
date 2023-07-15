@@ -1,4 +1,5 @@
 const { Users: UserModel } = require("../models/Users");
+const ComentsModel = require("../models/Coments");
 
 const userController = {
   create: async (req, res) => {
@@ -110,9 +111,11 @@ const userController = {
       const userDelete = await UserModel.findByIdAndDelete(id);
 
       if (userDelete !== null && userDelete !== undefined) {
+        const result = await ComentsModel.deleteMany({ 'author._id': id });
+        
         res
           .status(200)
-          .json({ userDelete, msg: "Usuário deletado com sucesso!" });
+          .json({ userDelete, deletedComents: result.deletedCount, msg: "Usuário deletado com sucesso!" });
       } else {
         res.status(404).json({ msg: "Usuário não encontrado!" });
       }
@@ -122,6 +125,8 @@ const userController = {
     }
   },
   put: async (req, res) => {
+    //falta adicionar aqui para que sempre que um USER seja alterado seus dados nos seus comentários também sejam
+
     try {
       const id = req.params.id;
 
@@ -139,12 +144,13 @@ const userController = {
 
       if (
         (user.name === undefined || user.name === null || user.name === "") &&
-        (user.email === undefined || user.email === null || user.email === "") &&
+        (user.email === undefined ||
+          user.email === null ||
+          user.email === "") &&
         (user.image === undefined || user.image === null || user.image === "")
       ) {
         res.status(400).json({
-          msg:
-            "É necessário pelo menos um campo para alterar o usuário (Nome, Email ou Imagem)!",
+          msg: "É necessário pelo menos um campo para alterar o usuário (Nome, Email ou Imagem)!",
         });
         return;
       }

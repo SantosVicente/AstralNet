@@ -52,9 +52,9 @@ const comentsController = {
   },
   getAll: async (req, res) => {
     try {
-      const coments = await ComentsModel.find();
+      const data = await ComentsModel.find();
 
-      res.status(200).json(coments);
+      res.status(200).json({data, msg: "Comentários encontrados com sucesso!"});
     } catch (error) {
       res.status(500).json({ msg: "Erro ao buscar comentários!" });
       console.error(error);
@@ -121,6 +121,7 @@ const comentsController = {
 
       const coments = {
         content: req.body.content,
+        author: req.body.author,
       };
 
       if (
