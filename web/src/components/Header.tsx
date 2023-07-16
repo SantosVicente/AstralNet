@@ -27,7 +27,7 @@ export default function Header() {
   
   const handleLoginClick = async () => {
     try {
-      const response = await fetch(api + 'users/64ab0d92c3cf2012fe98bd83');
+      const response = await fetch(api + 'users/64b33c2257d70918a058023e');
       if (response.ok) {
         const data = await response.json();
         setUser(data.data);
