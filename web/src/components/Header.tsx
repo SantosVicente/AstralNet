@@ -4,41 +4,31 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { apiRoute } from '@/slices/apiRoute';
+import { useGlobalContext } from '@/contexts/context';
 
 import { User2 } from 'lucide-react';
 import Logo from '../app/icon.png';
 import Profile from '../assets/profile.png';
 
-interface User {
-  _id: string;
-  idOauth: string;
-  name: string;
-  email: string;
-  image: string;
-  createdAt: string;
-  updatedAt: string;
-  __v: number;
-}
-
 export default function Header() {
-  const [user, setUser] = useState<User | null>(null);
+  const { data, setData } = useGlobalContext();
+  const [isLogged, setIsLogged] = useState<boolean>(false);
 
   const api = apiRoute();
-  
-  const handleLoginClick = async () => {
+
+  const fetchData = async () => {
     try {
       const response = await fetch(api + 'users/64b33c2257d70918a058023e');
-      if (response.ok) {
-        const data = await response.json();
-        setUser(data.data);
-      } else {
-        console.log('Erro ao obter os dados do usuário');
-      }
-    } catch (error) {
-      console.log('Erro na requisição', error);
-    }
-  };
+      const data = await response.json();
 
+      setData(data.data);
+      console.log(data);
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+
+    setIsLogged(true);
+  };
 
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [headerBackground, setHeaderBackground] =
@@ -84,7 +74,7 @@ export default function Header() {
   };
 */
   const handleLogout = () => {
-    setUser(null);
+    setIsLogged(false);
   };
 
   return (
@@ -120,7 +110,7 @@ export default function Header() {
           </li>
         </ul>
 
-        {user ? (
+        {isLogged === true ? (
           <Link
             href=""
             className="flex items-center gap-2 text-zinc-50 font-alt transition-colors"
@@ -128,11 +118,12 @@ export default function Header() {
             <Image src={Profile} width={45} className="rounded-full" alt="" />
             <div>
               <p className="w-40 text-sm font-semibold">
-                Bem vindo <span className="font-bold">{user.name}</span>
+                Bem vindo{' '}
+                <span className="font-bold">{data?.name}</span>
               </p>
               <p
                 className="text-xs hover:text-zinc-100 text-zinc-400"
-                onClick={handleLogout}
+                onClick={() => handleLogout()}
               >
                 Clique para Sair
               </p>
@@ -141,7 +132,7 @@ export default function Header() {
         ) : (
           <Link
             href=""
-            onClick={handleLoginClick}
+            onClick={fetchData}
             className="hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt transition-colors"
           >
             <div className="p-2 bg-zinc-400 bg-opacity-25 rounded-full">
