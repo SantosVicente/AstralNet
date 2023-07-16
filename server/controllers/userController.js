@@ -111,11 +111,15 @@ const userController = {
       const userDelete = await UserModel.findByIdAndDelete(id);
 
       if (userDelete !== null && userDelete !== undefined) {
-        const result = await ComentsModel.deleteMany({ 'author._id': id });
-        
+        const result = await ComentsModel.deleteMany({ "author._id": id });
+
         res
           .status(200)
-          .json({ userDelete, deletedComents: result.deletedCount, msg: "Usuário deletado com sucesso!" });
+          .json({
+            userDelete,
+            deletedComents: result.deletedCount,
+            msg: "Usuário deletado com sucesso!",
+          });
       } else {
         res.status(404).json({ msg: "Usuário não encontrado!" });
       }
@@ -158,7 +162,65 @@ const userController = {
       const putUser = await UserModel.findByIdAndUpdate(id, user);
 
       if (putUser !== null && putUser !== undefined) {
-        res.status(200).json({ user, msg: "Usuário alterado com sucesso!" });
+        let result;
+
+        if (user.name && user.email && user.image) {
+          result = await ComentsModel.updateMany(
+            { "author._id": id },
+            {
+              "author.name": user.name,
+              "author.email": user.email,
+              "author.image": user.image,
+            }
+          );
+        } else if (user.name && user.email) {
+          result = await ComentsModel.updateMany(
+            { "author._id": id },
+            {
+              "author.name": user.name,
+              "author.email": user.email,
+            }
+          );
+        } else if (user.name && user.image) {
+          result = await ComentsModel.updateMany(
+            { "author._id": id },
+            {
+              "author.name": user.name,
+              "author.image": user.image,
+            }
+          );
+        } else if (user.email && user.image) {
+          result = await ComentsModel.updateMany(
+            { "author._id": id },
+            {
+              "author.email": user.email,
+              "author.image": user.image,
+            }
+          );
+        } else if (user.name) {
+          result = await ComentsModel.updateMany(
+            { "author._id": id },
+            {
+              "author.name": user.name,
+            }
+          );
+        } else if (user.email) {
+          result = await ComentsModel.updateMany(
+            { "author._id": id },
+            {
+              "author.email": user.email,
+            }
+          );
+        } else if (user.image) {
+          result = await ComentsModel.updateMany(
+            { "author._id": id },
+            {
+              "author.image": user.image,
+            }
+          );
+        }
+
+        res.status(200).json({ user, result, msg: "Usuário alterado com sucesso!" });
         return;
       }
 
