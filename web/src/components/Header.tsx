@@ -3,16 +3,28 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { apiRoute } from '@/slices/apiRoute';
+import { apiRoute } from '@/libs/api';
 import { useGlobalContext } from '@/contexts/context';
+//import { cookies } from 'next/headers'
+
+import { Profile } from '@/libs/Profile';
+import { SignIn } from '@/libs/SignIn';
 
 import { User2 } from 'lucide-react';
 import Logo from '../app/icon.png';
-import Profile from '../assets/profile.png';
+import asset from '../assets/profile.png';
 
 export default function Header() {
-  const { data, setData } = useGlobalContext();
+  //const isAuthenticated = cookies().has('token');
+  const { user, setUser } = useGlobalContext();
   const [isLogged, setIsLogged] = useState<boolean>(false);
+
+/*   useEffect(() => {
+    if (userGet) {
+      setUser(userGet);
+      setIsLogged(true);
+    }
+  }, [setUser, userGet]); */
 
   const api = apiRoute();
 
@@ -21,8 +33,7 @@ export default function Header() {
       const response = await fetch(api + 'users/64b33c2257d70918a058023e');
       const data = await response.json();
 
-      setData(data.data);
-      console.log(data);
+      setUser(data.data);
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
@@ -65,14 +76,6 @@ export default function Header() {
     calculateBackground();
   }, [scrollPosition]);
 
-  /*const handleLogin = () => {
-    const loggedInUser: User = {
-      id: 1,
-      name: 'John Doe',
-    };
-    setUser(loggedInUser);
-  };
-*/
   const handleLogout = () => {
     setIsLogged(false);
   };
@@ -102,28 +105,29 @@ export default function Header() {
           </li>
           <li>
             <Link
-              href="#about"
-              className="hover:text-zinc-50 transition-colors"
+              href="#aboutUs"
+              className="hover:text-zinc-50 transition-colors"              
             >
               About Us
             </Link>
           </li>
         </ul>
 
+        {/*isAuthenticated ? <Profile /> : <SignIn />*/}
+
         {isLogged === true ? (
           <Link
             href=""
             className="flex items-center gap-2 text-zinc-50 font-alt transition-colors"
           >
-            <Image src={Profile} width={45} className="rounded-full" alt="" />
+            <Image src={asset} width={45} className="rounded-full" alt="" />
             <div>
               <p className="w-40 text-sm font-semibold">
-                Bem vindo{' '}
-                <span className="font-bold">{data?.name}</span>
+                Bem vindo <span className="font-bold">{user?.name}</span>
               </p>
               <p
                 className="text-xs hover:text-zinc-100 text-zinc-400"
-                onClick={() => handleLogout()}
+                onClick={handleLogout}
               >
                 Clique para Sair
               </p>

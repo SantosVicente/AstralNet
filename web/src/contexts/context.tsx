@@ -19,14 +19,36 @@ interface User {
   __v: number;
 }
 
+interface Comment {
+  _id: string;
+  content: string;
+  page: string;
+  author: User;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}
+
 interface ContextProps {
-  data: User;
-  setData: Dispatch<SetStateAction<User>>;
+  user: User;
+  setUser: Dispatch<SetStateAction<User>>;
+  users: User[];
+  setUsers: Dispatch<SetStateAction<User[]>>;
+  comment: Comment;
+  setComment: Dispatch<SetStateAction<Comment>>;
+  comments: Comment[];
+  setComments: Dispatch<SetStateAction<Comment[]>>;
 }
 
 const GlobalContext = createContext<ContextProps>({
-  data: {} as User,
-  setData: (): void => {},
+  user: {} as User,
+  setUser: (): void => {},
+  users: [],
+  setUsers: (): void => {},
+  comment: {} as Comment,
+  setComment: (): void => {},
+  comments: [],
+  setComments: (): void => {},
 });
 
 export const GlobalContextProvider = ({
@@ -34,10 +56,13 @@ export const GlobalContextProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [data, setData] = useState<User>({} as User);
+  const [user, setUser] = useState<User>({} as User);
+  const [users, setUsers] = useState<User[]>([]);
+  const [comment, setComment] = useState<Comment>({} as Comment);
+  const [comments, setComments] = useState<Comment[]>([]);
 
   return (
-    <GlobalContext.Provider value={{ data, setData }}>
+    <GlobalContext.Provider value={{ user, setUser, users, setUsers, comment, setComment, comments, setComments }}>
       {children}
     </GlobalContext.Provider>
   );
