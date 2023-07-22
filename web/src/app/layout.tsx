@@ -3,7 +3,7 @@ import {
   Roboto_Flex as Roboto,
   Bai_Jamjuree as BaiJamjuree,
 } from 'next/font/google';
-import { GlobalContextProvider } from '@/contexts/context';
+import { AuthProvider } from '@/contexts/Auth/authProvider';
 
 import Parceiros from '@/components/Parceiros';
 import AboutUs from '@/components/AboutUs';
@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
       >
-        <GlobalContextProvider>
+        <AuthProvider>
           <Header />
 
           {children}
@@ -45,7 +45,7 @@ export default function RootLayout({
           {/*Sobre Nós*/}
           <AboutUs />
           {/*Footer*/}
-        </GlobalContextProvider>
+        </AuthProvider>
       </body>
     </html>
   );

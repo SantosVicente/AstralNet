@@ -4,42 +4,32 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { apiRoute } from '@/libs/api';
-import { useGlobalContext } from '@/contexts/context';
-//import { cookies } from 'next/headers'
-
-import { Profile } from '@/libs/Profile';
-import { SignIn } from '@/libs/SignIn';
+import { useContext } from 'react';
 
 import { User2 } from 'lucide-react';
 import Logo from '../app/icon.png';
 import asset from '../assets/profile.png';
+import { AuthContext } from '@/contexts/Auth/authContext';
 
 export default function Header() {
-  //const isAuthenticated = cookies().has('token');
-  const { user, setUser } = useGlobalContext();
+  const auth = useContext(AuthContext);
   const [isLogged, setIsLogged] = useState<boolean>(false);
-
-/*   useEffect(() => {
-    if (userGet) {
-      setUser(userGet);
-      setIsLogged(true);
-    }
-  }, [setUser, userGet]); */
 
   const api = apiRoute();
 
   const fetchData = async () => {
     try {
-      const response = await fetch(api + 'users/64b33c2257d70918a058023e');
-      const data = await response.json();
-
-      setUser(data.data);
+      setIsLogged(await auth.signin('64b33c2257d70918a058023e'));
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
-
-    setIsLogged(true);
   };
+
+  const handleLogout = async () => {
+    await auth.signout();
+    setIsLogged(false);
+    window.location.reload();
+  }
 
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [headerBackground, setHeaderBackground] =
@@ -76,10 +66,6 @@ export default function Header() {
     calculateBackground();
   }, [scrollPosition]);
 
-  const handleLogout = () => {
-    setIsLogged(false);
-  };
-
   return (
     <div
       className="h-16 w-screen z-50 fixed headerBg flex items-center px-[2%]"
@@ -106,6 +92,7 @@ export default function Header() {
           <li>
             <Link
               href="#aboutUs"
+              onClick={() => {console.log(auth.user)}}
               className="hover:text-zinc-50 transition-colors"              
             >
               About Us
@@ -113,9 +100,8 @@ export default function Header() {
           </li>
         </ul>
 
-        {/*isAuthenticated ? <Profile /> : <SignIn />*/}
 
-        {isLogged === true ? (
+        {auth.user ? (
           <Link
             href=""
             className="flex items-center gap-2 text-zinc-50 font-alt transition-colors"
@@ -123,7 +109,7 @@ export default function Header() {
             <Image src={asset} width={45} className="rounded-full" alt="" />
             <div>
               <p className="w-40 text-sm font-semibold">
-                Bem vindo <span className="font-bold">{user?.name}</span>
+                Bem vindo <span className="font-bold">{auth.user?.name}</span>
               </p>
               <p
                 className="text-xs hover:text-zinc-100 text-zinc-400"
