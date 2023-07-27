@@ -3,6 +3,7 @@ import {
   Roboto_Flex as Roboto,
   Bai_Jamjuree as BaiJamjuree,
 } from 'next/font/google';
+import { AuthProvider } from '@/contexts/Auth/authProvider';
 
 import Parceiros from '@/components/Parceiros';
 import AboutUs from '@/components/AboutUs';
@@ -27,20 +28,24 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-br">
-      <body className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}>
-        <Header />
+      <body
+        className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
+      >
+        <AuthProvider>
+          <Header />
 
-        {children}
+          {children}
 
-        {/*Stripes*/}
-        <div className="bg-stripes h-2" />
+          {/*Stripes*/}
+          <div className="bg-stripes h-2" />
 
-        {/*Parceiros*/}
-        <Parceiros />
+          {/*Parceiros*/}
+          <Parceiros />
 
-        {/*Sobre Nós*/}
-        <AboutUs />
-        {/*Footer*/}
+          {/*Sobre Nós*/}
+          <AboutUs />
+          {/*Footer*/}
+        </AuthProvider>
       </body>
     </html>
   );

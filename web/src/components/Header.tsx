@@ -3,34 +3,36 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { apiRoute } from '@/libs/api';
+import { useContext } from 'react';
 
 import { User2 } from 'lucide-react';
 import Logo from '../app/icon.png';
-import Profile from '../assets/profile.png';
-
-interface User {
-  user: any;
-  id: number;
-  name: string;
-}
+import asset from '../assets/profile.png';
+import { AuthContext } from '@/contexts/Auth/authContext';
 
 export default function Header() {
-  const [user, setUser] = useState<User | null>(null);
+  const auth = useContext(AuthContext);
+  const [isLogged, setIsLogged] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean | null>(null);
 
-  const handleLoginClick = async () => {
+  const api = apiRoute();
+
+  const fetchData = async () => {
+    setIsLoading(true);
     try {
-      const response = await fetch('http://localhost:3000/users/1');
-      if (response.ok) {
-        const data = await response.json();
-        setUser(data);
-      } else {
-        console.log('Erro ao obter os dados do usuário');
-      }
+      setIsLogged(await auth.signin('64b33c2257d70918a058023e'));
     } catch (error) {
-      console.log('Erro na requisição', error);
+      console.error('Erro ao buscar dados:', error);
     }
+    setIsLoading(false);
   };
 
+  const handleLogout = async () => { 
+    await auth.signout();
+    setIsLogged(false);
+    window.location.reload();
+  }
 
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [headerBackground, setHeaderBackground] =
@@ -67,18 +69,6 @@ export default function Header() {
     calculateBackground();
   }, [scrollPosition]);
 
-  /*const handleLogin = () => {
-    const loggedInUser: User = {
-      id: 1,
-      name: 'John Doe',
-    };
-    setUser(loggedInUser);
-  };
-*/
-  const handleLogout = () => {
-    setUser(null);
-  };
-
   return (
     <div
       className="h-16 w-screen z-50 fixed headerBg flex items-center px-[2%]"
@@ -93,34 +83,36 @@ export default function Header() {
 
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
-            <Link href="" className="hover:text-zinc-50 transition-colors">
+            <Link href="/pages/home" className="hover:text-zinc-50 transition-colors">
               Home
             </Link>
           </li>
           <li>
-            <Link href="" className="hover:text-zinc-50 transition-colors">
+            <Link href="/pages/info" className="hover:text-zinc-50 transition-colors">
               Info
             </Link>
           </li>
           <li>
             <Link
-              href="#about"
-              className="hover:text-zinc-50 transition-colors"
+              href="#aboutUs"
+              onClick={() => {console.log(auth.user)}}
+              className="hover:text-zinc-50 transition-colors"              
             >
               About Us
             </Link>
           </li>
         </ul>
 
-        {user ? (
+
+        {auth.user ? (
           <Link
             href=""
             className="flex items-center gap-2 text-zinc-50 font-alt transition-colors"
           >
-            <Image src={Profile} width={45} className="rounded-full" alt="" />
+            <Image src={asset} width={45} className="rounded-full" alt="" />
             <div>
               <p className="w-40 text-sm font-semibold">
-                Bem vindo <span className="font-bold">{user.user.name}</span>
+                Bem vindo <span className="font-bold">{auth.user?.name}</span>
               </p>
               <p
                 className="text-xs hover:text-zinc-100 text-zinc-400"
@@ -133,7 +125,7 @@ export default function Header() {
         ) : (
           <Link
             href=""
-            onClick={handleLoginClick}
+            onClick={fetchData}
             className="hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt transition-colors"
           >
             <div className="p-2 bg-zinc-400 bg-opacity-25 rounded-full">
@@ -142,9 +134,12 @@ export default function Header() {
             <p className="w-40 text-sm font-semibold">
               <span className="underline">Crie sua conta</span> e viaje pelo
               cosmos!
+              {isLoading === true ? <p>Carregando...</p> : null}
             </p>
+
           </Link>
         )}
+        
       </div>
     </div>
   );
