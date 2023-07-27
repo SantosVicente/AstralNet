@@ -14,18 +14,21 @@ import { AuthContext } from '@/contexts/Auth/authContext';
 export default function Header() {
   const auth = useContext(AuthContext);
   const [isLogged, setIsLogged] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean | null>(null);
 
   const api = apiRoute();
 
   const fetchData = async () => {
+    setIsLoading(true);
     try {
       setIsLogged(await auth.signin('64b33c2257d70918a058023e'));
     } catch (error) {
       console.error('Erro ao buscar dados:', error);
     }
+    setIsLoading(false);
   };
 
-  const handleLogout = async () => {
+  const handleLogout = async () => { 
     await auth.signout();
     setIsLogged(false);
     window.location.reload();
@@ -80,12 +83,12 @@ export default function Header() {
 
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
-            <Link href="" className="hover:text-zinc-50 transition-colors">
+            <Link href="/pages/home" className="hover:text-zinc-50 transition-colors">
               Home
             </Link>
           </li>
           <li>
-            <Link href="" className="hover:text-zinc-50 transition-colors">
+            <Link href="/pages/info" className="hover:text-zinc-50 transition-colors">
               Info
             </Link>
           </li>
@@ -131,9 +134,12 @@ export default function Header() {
             <p className="w-40 text-sm font-semibold">
               <span className="underline">Crie sua conta</span> e viaje pelo
               cosmos!
+              {isLoading === true ? <p>Carregando...</p> : null}
             </p>
+
           </Link>
         )}
+        
       </div>
     </div>
   );
