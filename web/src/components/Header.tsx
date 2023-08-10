@@ -83,19 +83,18 @@ export default function Header() {
 
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
-            <Link href="/pages/home" className="hover:text-zinc-50 transition-colors">
+            <Link href="/home" className="hover:text-zinc-50 transition-colors">
               Home
             </Link>
           </li>
           <li>
-            <Link href="/pages/info" className="hover:text-zinc-50 transition-colors">
+            <Link href="/info" className="hover:text-zinc-50 transition-colors">
               Info
             </Link>
           </li>
           <li>
             <Link
               href="#aboutUs"
-              onClick={() => {console.log(auth.user)}}
               className="hover:text-zinc-50 transition-colors"              
             >
               About Us
@@ -134,7 +133,7 @@ export default function Header() {
             <p className="w-40 text-sm font-semibold">
               <span className="underline">Crie sua conta</span> e viaje pelo
               cosmos!
-              {isLoading === true ? <p>Carregando...</p> : null}
+              {isLoading === true ? <p className='text-sm'>Carregando...</p> : null}
             </p>
 
           </Link>
