@@ -6,7 +6,7 @@ import Link from 'next/link';
 export default function Cards() {
   return (
     <div className="relative flex flex-col gap-16 items-center">
-      <div className="flex xl:flex-col xl:gap-8 md:flex-row md:gap-0 justify-between w-[82vw] px-10">
+      <div  className="flex xl:flex-col xl:gap-8 md:flex-row md:gap-0 justify-between w-[82vw] px-10">
         <ScrollAnimation delay={0.1} duration={0.3} y={150}>
           <h1 className="font-alt h1 uppercase font-bold w-[40rem]">
             Principais tópicos para você decolar conosco
@@ -27,7 +27,7 @@ export default function Cards() {
         <div className="xl:overflow-x-scroll overflow-hidden 2xl:gap-[2%] w-full h-[30rem] flex gap-[5%] xl:gap-0 justify-center xl:justify-start">
           <ScrollAnimation delay={0.1} duration={0.3} y={100}>
             <Link
-              href=""
+              href="/info/introduction"
               id="card1"
               className="border-card1 2xl:scale-90 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
             >
@@ -50,7 +50,7 @@ export default function Cards() {
           </ScrollAnimation>
           <ScrollAnimation delay={0.3} duration={0.3} y={100}>
             <Link
-              href=""
+              href="/info/universe-scale"
               id="card2"
               className="border-card2 2xl:scale-90 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
             >
@@ -73,7 +73,7 @@ export default function Cards() {
           </ScrollAnimation>
           <ScrollAnimation delay={0.4} duration={0.3} y={100}>
             <Link
-              href=""
+              href="/info/solar-system"
               id="card3"
               className="border-card3 border 2xl:scale-90 border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
             >
