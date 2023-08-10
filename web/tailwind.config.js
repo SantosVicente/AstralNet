@@ -7,6 +7,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'sm': {'max': '640px'},
+        'md': {'max': '800px'},
+        'lg': {'max': '1024px'},
+        'xl': {'max': '1280px'},
+        '2xl': {'max': '1536px'},
+      },
       fontFamily: {
         rob: 'var(--font-roboto)',
         alt: 'var(--font-bai-jamjure)',
@@ -22,6 +29,9 @@ module.exports = {
         },
         purple: {
           500: '#5C4BC2',
+        },
+        gray: {
+          950: '#121212',
         },
       },
     },

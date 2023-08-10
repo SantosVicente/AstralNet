@@ -1,4 +1,4 @@
-# Projeto Integrador 2: A Desinformação na Astronomia 
+# Astral NET: A Desinformação na Astronomia 
 
 Este repositório contém o código-fonte do nosso projeto sobre Astronomia, um website desenvolvido com o objetivo de combater a desinformação e promover o conhecimento sobre astronomia. O site oferece informações precisas e confiáveis, além de recursos interativos para engajar os usuários. Sua realização é baseada na pesquisa feita pelos colaboradores desse projeto com o auxílio de professores, essa pesquisa foi feita em artigos, pesquisas de campo e exploratórias, usando o método científico para entender esses déficts de conhecimento e combatê-lo de uma forma agradável e não maçante. 
 
@@ -7,7 +7,7 @@ Projeto Desenvolvido para a BRAGANTEC 2023 na disciplina de Projeto Integrador 2
 ## Tecnologias que iremos utilizadar
 
 - Front-end: Next.js, TypeScript, Tailwind CSS, axios, etc.
-- Back-end: Prisma, MongoDB, Express, Node.js, etc.
+- Back-end: Prisma, SQLite, Express, Node.js, etc.
 
 ## Funcionalidades
 
@@ -22,7 +22,7 @@ Projeto Desenvolvido para a BRAGANTEC 2023 na disciplina de Projeto Integrador 2
 ## Instalação
 
 1. Clone este repositório em sua máquina local:
-  - git clone https://github.com/SantosVicente/AstralNexus.git
+  - git clone https://github.com/SantosVicente/AstralNet.git
 
 2. Instale as dependências do projeto:
   - 'npm install'
