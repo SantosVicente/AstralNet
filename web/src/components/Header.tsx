@@ -57,7 +57,7 @@ export default function Header() {
         // precisamos da % de 0 a 350, ai evitaria a gamb de deixar varios if
         //350 of 350 = 100% 
         //100 of 350 = 28.57%
-        setHeaderBackground('rgba(59, 15, 113, ' +  (scrollPosition / 350) 
+        setHeaderBackground('rgba(2, 12, 20, ' +  (scrollPosition / 350) 
         + ')');
       } else if (scrollPosition <= 50) {
         setHeaderBackground('transparent');
