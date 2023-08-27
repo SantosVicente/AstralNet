@@ -1,11 +1,11 @@
-import Rocket from '../assets/rocket.svg';
-import Telescope from '../assets/telescope.svg';
-import Galaxy from '../assets/galaxy.svg';
-import Asteroid from '../assets/asteroid.svg';
-import Atom from '../assets/atom.svg';
-import Saturn from '../assets/saturn.svg';
+import Rocket from '../../assets/rocket.svg';
+import Telescope from '../../assets/telescope.svg';
+import Galaxy from '../../assets/galaxy.svg';
+import Asteroid from '../../assets/asteroid.svg';
+import Atom from '../../assets/atom.svg';
+import Saturn from '../../assets/saturn.svg';
 import Image from 'next/image';
-import ScrollAnimation from '../scrolls/ScrollReveal';
+import ScrollAnimation from '../../scrolls/ScrollReveal';
 
 export default function ToFind() {
   return (

@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import Balance from 'react-wrap-balancer';
-import Webb from '../assets/webb.png';
-import ScrollAnimation from '../scrolls/ScrollReveal';
-import ScrollAnimationX from '../scrolls/ScrollReveal2';
+import Webb from '../../assets/webb.png';
+
+//unificar esses dois componentes em um só
+import ScrollAnimation from '../../scrolls/ScrollReveal';
+import ScrollAnimationX from '../../scrolls/ScrollReveal2';
 
 export default function ToRead() {
   return (

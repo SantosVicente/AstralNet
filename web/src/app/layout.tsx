@@ -5,9 +5,9 @@ import {
 } from 'next/font/google';
 import { AuthProvider } from '@/contexts/Auth/authProvider';
 
-import Parceiros from '@/components/Parceiros';
-import AboutUs from '@/components/AboutUs';
-import Header from '@/components/Header';
+import Parceiros from '@/components/Partners/Partners.component';
+import AboutUs from '@/components/AboutUs/AboutUs.component';
+import Header from '@/components/Header/Header.component';
 
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
 const baiJamjuree = BaiJamjuree({
