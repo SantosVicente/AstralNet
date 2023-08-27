@@ -7,8 +7,8 @@ import { apiRoute } from '@/libs/api';
 import { useContext } from 'react';
 
 import { User2 } from 'lucide-react';
-import Logo from '../app/icon.png';
-import asset from '../assets/profile.png';
+import Logo from '../../app/icon.png';
+import asset from '../../assets/profile.png';
 import { AuthContext } from '@/contexts/Auth/authContext';
 
 export default function Header() {
@@ -81,21 +81,13 @@ export default function Header() {
 
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
-            <Link href="/home" className="hover:text-zinc-50 transition-colors">
-              Home
+            <Link href="/imersive" className="hover:text-zinc-50 transition-colors">
+              Trilha Imersive
             </Link>
           </li>
           <li>
-            <Link href="/info" className="hover:text-zinc-50 transition-colors">
-              Info
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#aboutUs"
-              className="hover:text-zinc-50 transition-colors"              
-            >
-              About Us
+            <Link href="/static" className="hover:text-zinc-50 transition-colors">
+              Trilha Static
             </Link>
           </li>
         </ul>

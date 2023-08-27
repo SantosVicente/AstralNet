@@ -1,10 +1,9 @@
 import ScrollAnimation from '@/scrolls/ScrollReveal';
 import ScrollAnimationX from '@/scrolls/ScrollReveal2';
 import { Rocket, Orbit, Satellite } from 'lucide-react';
-import Link from 'next/link';
 import { Card } from './Card.component';
 
-export default function Cards() {
+export default function CardsSection() {
   return (
     <div className="relative flex flex-col gap-16 items-center">
       <div className="flex xl:flex-col xl:gap-8 md:flex-row md:gap-0 justify-between w-[82vw] px-10">
@@ -34,7 +33,7 @@ export default function Cards() {
                     guia, vamos mergulhar nos fundamentos e nas maravilhas que a
                     astronomia tem a oferecer."
               icon={<Rocket size={60} className="mt-[15%]" />}
-              link="/info/introduction"
+              link="/static/introduction"
             />
           </ScrollAnimation>
           <ScrollAnimation delay={0.3} duration={0.3} y={100}>
@@ -45,7 +44,7 @@ export default function Cards() {
                     exploraremos as teorias de formação do universo e
                     descobriremos as maravilhas da cosmologia observacional."
               icon={<Orbit size={60} className="mt-[15%]" />}
-              link="/info/universe-scale"
+              link="/static/universe-scale"
             />
           </ScrollAnimation>
           <ScrollAnimation delay={0.4} duration={0.3} y={100}>
@@ -56,7 +55,7 @@ export default function Cards() {
                     solar, os planetas que o compõem, a exploração de Marte e as
                     futuras missões que nos aguardam na exploração do espaço."
               icon={<Satellite size={60} className="mt-[15%]" />}
-              link="/info/solar-system"
+              link="/static/solar-system"
             />
           </ScrollAnimation>
         </div>

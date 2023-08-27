@@ -3,13 +3,12 @@ import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import Balance from 'react-wrap-balancer';
 
-import ToFind from '@/components/ToFind';
-import ToRead from '@/components/ToRead';
-import Cards from '@/components/Cards';
-import BlurComponent from '@/components/Balls';
+import ToFind from '@/components/ToFind/ToFind.component';
+import ToRead from '@/components/ToRead/ToRead.component';
+import CardsSection from '@/components/Card/CardsSection.component';
+import BlurComponent from '@/components/Balls/Balls.component';
 import ScrollAnimation from '../scrolls/ScrollReveal';
-import { Button } from '@mui/material';
-import { Popup } from '@/components/Popup';
+import { Popup } from '@/components/Popup/Popup.component';
 
 export default function Home() {
   return (
@@ -41,7 +40,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="w-screen ml-3 mt-auto h-[10%] flex items-start justify-center">
+          <div className="w-screen mt-auto h-[10%] flex items-start justify-center">
             <div className="flex flex-col items-center gap-1 opacity-60">
               <div className="flex p-2 bg-purple-500 rounded-full">
                 <ChevronDown size={25} />
@@ -67,7 +66,7 @@ export default function Home() {
         <ToRead />
       </div>
       <div className="pt-96 mb-24">
-        <Cards />
+        <CardsSection />
       </div>
     </div>
   );

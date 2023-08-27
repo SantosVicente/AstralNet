@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import ifsp from '../assets/Marca_IFSP_2015_Campinas-04_transparente.png';
-import nasa from '../assets/NasaLogo.png';
-import mpc from '../assets/MPC_logo.png'
+import ifsp from '../../assets/Marca_IFSP_2015_Campinas-04_transparente.png';
+import nasa from '../../assets/NasaLogo.png';
+import mpc from '../../assets/MPC_logo.png'
 
-export default function Parceiros() {
+export default function Partners() {
   return (
     <div
       className="border-t border-zinc-700 flex-col pt-24 pb-16 gap-8 bg-gray-950 flex items-center justify-center overflow-hidden"

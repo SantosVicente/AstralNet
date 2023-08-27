@@ -35,10 +35,11 @@ export function Popup(props: PopupProps) {
       >
         {props.children}
       </Button>
+      {/*rgba(33,37,50, 0.9)*/}
       <Dialog
         sx={{
           '& .MuiDialog-paper': {
-            backgroundColor: 'rgba(33,37,50, 0.9)',
+            backgroundColor: 'rgba(10,37,50, 0.9)',
             border: '1px solid #fff',
             color: '#fff'
            },
@@ -57,10 +58,10 @@ export function Popup(props: PopupProps) {
             </DialogContentText>
           </DialogContent>
           <Box className="flex items-center justify-between p-5">
-            <Link onClick={handleClose} href="./home" className='px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md'>
+            <Link onClick={handleClose} href="./imersive" className='px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md'>
               <Box>Trilha Imersiva</Box>
             </Link>
-            <Link onClick={handleClose} href="./info" className='px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md'>
+            <Link onClick={handleClose} href="./static" className='px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md'>
               <Box>Trilha Estática</Box>
             </Link>
           </Box>
