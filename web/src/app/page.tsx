@@ -8,6 +8,8 @@ import ToRead from '@/components/ToRead';
 import Cards from '@/components/Cards';
 import BlurComponent from '@/components/Balls';
 import ScrollAnimation from '../scrolls/ScrollReveal';
+import { Button } from '@mui/material';
+import { Popup } from '@/components/Popup';
 
 export default function Home() {
   return (
@@ -25,12 +27,12 @@ export default function Home() {
               todos, porque a curiosidade sobre o espaço não conhece limites.
             </p>
             <div className="flex gap-4 items-center">
-              <Link
-                href=""
+              {/*<Button
                 className="btn scroll-reveal px-4 py-2 rounded-md bg-gradient-to-br from-pink-500 to-blue-500"
               >
                 Comece Agora
-              </Link>
+          </Button>*/}
+              <Popup textBody='Qual caminho você irá seguir?' textTitle='Escolha sua trilha'>Comece Agora</Popup>
               <Link
                 href=""
                 className="btn scroll-reveal opacity px-6 py-2 rounded-md border border-blue-500 hover:border-pink-500"
