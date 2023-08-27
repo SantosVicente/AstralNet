@@ -14,10 +14,11 @@ export default function CardsSection() {
         </ScrollAnimation>
         <ScrollAnimationX delay={0.2} duration={0.3} x={150}>
           <div className="flex flex-col gap-6 md:hidden">
-            <div className="h-[0.1rem] rounded-md bg-zinc-600 w-20" />
-            <p className="text-lg">
-              Estas são algumas de nossas sessões de leitura que você pode
-              visitar!
+            <div className="h-[0.1rem] rounded-md bg-zinc-500 w-20" />
+            <p className="text-lg text-zinc-300">
+              Estas são algumas de nossas sessões de leitura da 
+              <span className='font-bold font-alt text-zinc-50'> Trilha Static</span><br /> 
+              que você pode visitar!
             </p>
           </div>
         </ScrollAnimationX>

@@ -53,13 +53,13 @@ export default function Home() {
 
       <ScrollAnimation delay={0} duration={0.3} y={150}>
         <div className="w-screen flex mt-16 -mb-52 md:-mb-[28rem] justify-center">
-          <div className="w-[0.01rem] h-96 bg-zinc-500 rounded-md " />
+          <div className="w-[0.1rem] h-96 bg-zinc-500 rounded-md " />
         </div>
       </ScrollAnimation>
 
       <BlurComponent top="175vh" left="90vw" />
 
-      <div className="mt-4 pt-72 :">
+      <div className="pt-32">
         <ToFind />
       </div>
       <div className="pt-96">
