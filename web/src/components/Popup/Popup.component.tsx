@@ -30,8 +30,9 @@ export function Popup(props: PopupProps) {
   return (
     <Box>
       <Button
-        className="btn scroll-reveal px-4 py-2 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 text-white font-rob"
+        className="btn scroll-reveal px-4 py-2 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 font-rob"
         onClick={handleClickOpen}
+        sx={{color: '#fff'}}
       >
         {props.children}
       </Button>
