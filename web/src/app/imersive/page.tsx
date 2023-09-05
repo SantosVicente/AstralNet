@@ -8,6 +8,17 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import background from '../../assets/1311860.jpeg'
 
+import { register } from 'swiper/element/bundle'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { EffectCoverflow, Pagination } from 'swiper/modules';
+
+register();
+import 'swiper/css'
+import 'swiper/css/navigation' //import das setas
+import 'swiper/css/pagination' //import da paginação
+import 'swiper/css/scrollbar'  //import da scrollbar
+import 'swiper/css/effect-coverflow'
+
 export default function Imersive() {
   const [mensagens, setMensagens] = useState([
     'Olá, eu sou o seu guia nessa jornada.',
@@ -23,7 +34,7 @@ export default function Imersive() {
   ]);
   const [mensagemAtual, setMensagemAtual] = useState('');
   const [indiceMensagem, setIndiceMensagem] = useState(0);
-  
+
   useEffect(() => {
     const mensagemCompleta = mensagens[indiceMensagem];
     if (mensagemAtual.length < mensagemCompleta.length) {
@@ -32,11 +43,11 @@ export default function Imersive() {
       }, 50);
     }
   }, [mensagemAtual, indiceMensagem, mensagens]);
-  
+
 
   const avancarMensagem = () => {
     const mensagemCompleta = mensagens[indiceMensagem];
-  
+
     if (mensagemAtual.length < mensagemCompleta.length) {
       setMensagemAtual(mensagemCompleta);
     } else {
@@ -63,8 +74,7 @@ export default function Imersive() {
     </Box>
   );
 }
-
-  {/* <Box className="pt-16 flex flex-col items-center h-screen justify-center">
+    {/*<Box className="pt-16 flex flex-col items-center h-screen justify-center">
       <Box className="mb-11 flex gap-10 w-screen items-center justify-center">
         <Box className="border-card2 border border-zinc-600 rounded-md flex w-[25%] h-[4.5rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center" />
         <Box className="border-card2 border border-zinc-600 rounded-md flex px-[1rem] pb-[1rem] pt-[1.5rem] transition-colors text-zinc-100 bg-zinc-50 bg-opacity-5 items-center justify-center">
@@ -73,23 +83,34 @@ export default function Imersive() {
         <Box className="border-card2 border border-zinc-600 rounded-md flex w-[25%] h-[4.5rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center" />
       </Box>
       <Box className="flex gap-10 items-center">
-        <Link href="./imersive" className="border-card2 border border-zinc-600 rounded-md flex w-[7rem] h-[15rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center">
-          <ArrowBigLeft size={60} />
-        </Link>
         <Box className="flex gap-10">
-          <Box className="scale-75">
-            <Card title="Card 1" description="Conteudo do Card 1" link="./imersive" />
-          </Box>
-          <Box>
-            <Card title="Card 2" description="Conteudo do Card 2" link="./imersive" />
-          </Box>
-          <Box className="scale-75">
-            <Card title="Card 3" description="Conteudo do Card 3" link="./imersive" />
-          </Box>
+          <Swiper
+            effect={'coverflow'}
+            navigation={true}
+            grabCursor={true}
+            centeredSlides={true}
+            slidesPerView={3}
+            coverflowEffect={{
+              rotate: 0,
+              stretch: 0,
+              depth: 200,
+              modifier: 1,
+              slideShadows: true,
+            }}
+            pagination={true}
+            modules={[EffectCoverflow, Pagination]}
+          >
+            <SwiperSlide>
+              <Card title="Card 1" description="Conteudo do Card 1" link="./imersive" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card title="Card 2" description="Conteudo do Card 2" link="./imersive" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Card title="Card 3" description="Conteudo do Card 3" link="./imersive" />
+            </SwiperSlide>
+          </Swiper>
         </Box>
-        <Link href="./imersive" className="border-card2 border border-zinc-600 rounded-md flex w-[7rem] h-[15rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center">
-          <ArrowBigRight size={60} />
-        </Link>
       </Box>
       <Button className="text-white border border-zinc-600 mt-11 p-10 text-2xl rounded-lg font-alt hover:font-bold hover:border-zinc-200" variant="outlined">Selecionar Destino</Button>
-    </Box> */}
+    </Box>*/}

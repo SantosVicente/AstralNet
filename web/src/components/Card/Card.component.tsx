@@ -11,7 +11,7 @@ export function Card(props: CardProps) {
   return (
     <Link
       href={props.link}
-      className="border-card2 2xl:scale-90 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5"
+      className="border-card2 2xl:scale-90 border border-zinc-600 rounded-md px-10 flex flex-col w-[25rem] h-[25rem] transition-colors text-zinc-400 hover:text-zinc-50 card-bg"
     >
       {props.icon}
       <div className="mt-4 break-words">

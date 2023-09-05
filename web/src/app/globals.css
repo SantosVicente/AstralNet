@@ -43,6 +43,10 @@ body {
   position: relative;
 }
 
+.card-bg {
+  background-color: #0f1820;
+}
+
 .bg2::after {
   content: '';
   position: absolute;
