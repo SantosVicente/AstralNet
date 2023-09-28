@@ -5,7 +5,7 @@ const userController = {
   create: async (req, res) => {
     try {
       const user = {
-        idOauth: req.body.idOauth,
+        idOauth: req.body.idOauth ? req.body.idOauth : null,
         name: req.body.name,
         email: req.body.email,
         image: req.body.image,
@@ -27,11 +27,7 @@ const userController = {
         return;
       }
 
-      if (
-        user.email === undefined ||
-        user.email === null ||
-        user.email === ""
-      ) {
+      if (!user.email) {
         res
           .status(400)
           .json({ msg: "O campo Email é obrigatório na request!" });
@@ -120,6 +116,8 @@ const userController = {
             deletedComents: result.deletedCount,
             msg: "Usuário deletado com sucesso!",
           });
+
+        return;
       } else {
         res.status(404).json({ msg: "Usuário não encontrado!" });
       }
