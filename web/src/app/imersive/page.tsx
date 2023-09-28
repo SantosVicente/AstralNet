@@ -6,6 +6,7 @@ import { ArrowBigLeft, ArrowBigRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { Typewriter } from 'react-simple-typewriter'
 import background from '../../assets/1311860.jpeg'
 
 import { register } from 'swiper/element/bundle'
@@ -18,6 +19,7 @@ import 'swiper/css/navigation' //import das setas
 import 'swiper/css/pagination' //import da paginação
 import 'swiper/css/scrollbar'  //import da scrollbar
 import 'swiper/css/effect-coverflow'
+import { setTimeout } from "timers";
 
 export default function Imersive() {
   const [mensagens, setMensagens] = useState([
@@ -34,47 +36,52 @@ export default function Imersive() {
   ]);
   const [mensagemAtual, setMensagemAtual] = useState('');
   const [indiceMensagem, setIndiceMensagem] = useState(0);
+  const [typing, setTyping] = useState(true);
 
   useEffect(() => {
-    const mensagemCompleta = mensagens[indiceMensagem];
-    if (mensagemAtual.length < mensagemCompleta.length) {
-      setTimeout(() => {
-        setMensagemAtual(mensagemAtual + mensagemCompleta[mensagemAtual.length]);
-      }, 50);
-    }
-  }, [mensagemAtual, indiceMensagem, mensagens]);
+    if (typing) {
+      const currentPhrase = mensagens[indiceMensagem];
+      const textLength = mensagemAtual.length;
 
+      if (textLength < currentPhrase.length) {
+        const timeoutId = setTimeout(() => {
+          setMensagemAtual(currentPhrase.substring(0, textLength + 1));
+        }, 50); // Velocidade de digitação, você pode ajustar isso
 
-  const avancarMensagem = () => {
-    const mensagemCompleta = mensagens[indiceMensagem];
-
-    if (mensagemAtual.length < mensagemCompleta.length) {
-      setMensagemAtual(mensagemCompleta);
+        return () => clearTimeout(timeoutId);
+      } else {
+        setTyping(false);
+      }
     } else {
+      setMensagemAtual('');
+    }
+  }, [mensagemAtual, mensagens, indiceMensagem, typing]);
+
+  const handleDivClick = () => {
+    if (typing) {
+      //se mensagemAtual ainda tiver digitando, exiba a frase inteira
+      setMensagemAtual(mensagens[indiceMensagem]);
+      setTyping(false);
+    } else {
+      // Vá para a próxima frase ou reinicie
       if (indiceMensagem < mensagens.length - 1) {
         setIndiceMensagem(indiceMensagem + 1);
-        setMensagemAtual('');
-      } else {
-        setMensagemAtual('Nada acontece...');
-
-        setTimeout(() => {
-          setMensagemAtual('Nada acontece... Por enquanto.');
-        }, 1500);
+        setTyping(true);
       }
     }
   };
 
   return (
     <Box className="w-screen h-screen bg2 flex items-end overflow-hidden">
-      <Box className="h-[15rem] w-full m-3 bg-opacity-90 bg-black text-white p-2 rounded cursor-pointer border border-red-500" onClick={avancarMensagem}>
+      <Box className="h-[15rem] w-full m-3 bg-opacity-90 bg-black text-white p-2 rounded cursor-pointer border border-red-500" onClick={handleDivClick}>
         <p className="m-4 font-alt text-3xl">
-          {mensagemAtual}
+          {typing ? mensagemAtual : mensagens[indiceMensagem]}
         </p>
       </Box>
     </Box>
   );
 }
-    {/*<Box className="pt-16 flex flex-col items-center h-screen justify-center">
+{/*<Box className="pt-16 flex flex-col items-center h-screen justify-center">
       <Box className="mb-11 flex gap-10 w-screen items-center justify-center">
         <Box className="border-card2 border border-zinc-600 rounded-md flex w-[25%] h-[4.5rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center" />
         <Box className="border-card2 border border-zinc-600 rounded-md flex px-[1rem] pb-[1rem] pt-[1.5rem] transition-colors text-zinc-100 bg-zinc-50 bg-opacity-5 items-center justify-center">
