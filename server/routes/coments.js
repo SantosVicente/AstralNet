@@ -46,8 +46,8 @@ router.route("/").post(async (req, res) => {
 
 
 router.route("/").get((req, res) => comentsController.getAll(req, res));
-router.route(":id").get((req, res) => comentsController.get(req, res));
-router.route(":id").delete((req, res) => comentsController.delete(req, res));
-router.route(":id").put((req, res) => comentsController.put(req, res));
+router.route("/:id").get((req, res) => comentsController.get(req, res));
+router.route("/:id").delete((req, res) => comentsController.delete(req, res));
+router.route("/:id").put((req, res) => comentsController.put(req, res));
 
 module.exports = router;

@@ -5,7 +5,7 @@ async function main() {
   try {
     mongoose.set("strictQuery", true);
 
-    await mongoose.connect('mongodb+srv://admin:ifsp1234@astral-net.ubu2lt4.mongodb.net/', {
+    await mongoose.connect(process.env.MONGODB_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
