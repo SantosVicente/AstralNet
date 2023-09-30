@@ -16,6 +16,9 @@ import 'swiper/css/effect-coverflow';
 import { setTimeout } from 'timers';
 
 import './imersive.css';
+import Image from 'next/image';
+import background1 from '../../assets/1311860.jpeg';
+import background2 from '../../assets/Bg.jpg';
 
 export default function Imersive() {
   const backgrounds = [
@@ -92,7 +95,6 @@ export default function Imersive() {
   const [typing, setTyping] = useState(true);
   const [backgroundIndex, setBackgroundIndex] = useState(1);
 
-  const BoxElement = document.getElementById('imersive-bg');
   useEffect(() => {
     document.body.classList.add('overflow-hidden-body');
 
@@ -105,7 +107,7 @@ export default function Imersive() {
     if (mensagens[indiceMensagem].backgroundID != backgroundIndex) {
       setBackgroundIndex(mensagens[indiceMensagem].backgroundID);
     }
-  }, [indiceMensagem, backgroundIndex, mensagens, BoxElement]);
+  }, [indiceMensagem, backgroundIndex, mensagens]);
 
   useEffect(() => {
     if (typing) {
@@ -141,10 +143,14 @@ export default function Imersive() {
   };
 
   return (
-    <>
+    <Box className="w-screen h-screen relative overflow-hidden">
+      <Image
+        src={backgroundIndex == 1 ? background1 : background2}
+        alt="background"
+        className="absolute top-0 left-0 -z-9 w-screen h-screen object-cover"
+      />
       <Box
-        className={`w-screen h-screen bg${backgroundIndex} flex items-end overflow-hidden`}
-        id="imersive-bg"
+        className={`w-screen h-screen bg${backgroundIndex} z-50 flex items-end overflow-hidden`}
       >
         <Box
           className="h-[15rem] w-full m-3 bg-opacity-80 bg-black text-white p-2 rounded-xl cursor-pointer border border-red-500"
@@ -155,6 +161,6 @@ export default function Imersive() {
           </p>
         </Box>
       </Box>
-    </>
+    </Box>
   );
 }

@@ -9,6 +9,8 @@ import Parceiros from '@/components/Partners/Partners.component';
 import AboutUs from '@/components/AboutUs/AboutUs.component';
 import Header from '@/components/Header/Header.component';
 
+import { Providers } from './providers';
+
 const roboto = Roboto({ subsets: ['latin'], variable: '--font-roboto' });
 const baiJamjuree = BaiJamjuree({
   subsets: ['latin'],
@@ -31,21 +33,23 @@ export default function RootLayout({
       <body
         className={`${roboto.variable} ${baiJamjuree.variable} font-rob bg-blue-950 text-zinc-50 overflow-x-hidden`}
       >
-        <AuthProvider>
-          <Header />
+        <Providers>
+          <AuthProvider>
+            <Header />
 
-          {children}
+            {children}
 
-          {/*Stripes*/}
-          <div className="bg-stripes h-2" />
+            {/*Stripes*/}
+            <div className="bg-stripes h-2" />
 
-          {/*Parceiros*/}
-          <Parceiros />
+            {/*Parceiros*/}
+            <Parceiros />
 
-          {/*Sobre Nós*/}
-          <AboutUs />
-          {/*Footer*/}
-        </AuthProvider>
+            {/*Sobre Nós*/}
+            <AboutUs />
+            {/*Footer*/}
+          </AuthProvider>
+        </Providers>
       </body>
     </html>
   );
