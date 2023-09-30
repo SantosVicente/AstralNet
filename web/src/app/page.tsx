@@ -3,11 +3,12 @@ import Link from 'next/link';
 import { ChevronDown } from 'lucide-react';
 import Balance from 'react-wrap-balancer';
 
-import ToFind from '@/components/ToFind';
-import ToRead from '@/components/ToRead';
-import Cards from '@/components/Cards';
-import BlurComponent from '@/components/Balls';
+import ToFind from '@/components/ToFind/ToFind.component';
+import ToRead from '@/components/ToRead/ToRead.component';
+import CardsSection from '@/components/Card/CardsSection.component';
+import BlurComponent from '@/components/Balls/Balls.component';
 import ScrollAnimation from '../scrolls/ScrollReveal';
+import { Popup } from '@/components/Popup/Popup.component';
 
 export default function Home() {
   return (
@@ -25,12 +26,12 @@ export default function Home() {
               todos, porque a curiosidade sobre o espaço não conhece limites.
             </p>
             <div className="flex gap-4 items-center">
-              <Link
-                href=""
+              {/*<Button
                 className="btn scroll-reveal px-4 py-2 rounded-md bg-gradient-to-br from-pink-500 to-blue-500"
               >
                 Comece Agora
-              </Link>
+          </Button>*/}
+              <Popup textBody='Qual caminho você irá seguir?' textTitle='Escolha sua trilha'>Comece Agora</Popup>
               <Link
                 href=""
                 className="btn scroll-reveal opacity px-6 py-2 rounded-md border border-blue-500 hover:border-pink-500"
@@ -39,7 +40,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-          <div className="w-screen ml-3 mt-auto h-[10%] flex items-start justify-center">
+          <div className="w-screen mt-auto h-[10%] flex items-start justify-center">
             <div className="flex flex-col items-center gap-1 opacity-60">
               <div className="flex p-2 bg-purple-500 rounded-full">
                 <ChevronDown size={25} />
@@ -52,20 +53,20 @@ export default function Home() {
 
       <ScrollAnimation delay={0} duration={0.3} y={150}>
         <div className="w-screen flex mt-16 -mb-52 md:-mb-[28rem] justify-center">
-          <div className="w-[0.01rem] h-96 bg-zinc-500 rounded-md " />
+          <div className="w-[0.1rem] h-96 bg-zinc-500 rounded-md " />
         </div>
       </ScrollAnimation>
 
       <BlurComponent top="175vh" left="90vw" />
 
-      <div className="mt-4 pt-72 :">
+      <div className="pt-32">
         <ToFind />
       </div>
       <div className="pt-96">
         <ToRead />
       </div>
       <div className="pt-96 mb-24">
-        <Cards />
+        <CardsSection />
       </div>
     </div>
   );

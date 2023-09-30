@@ -1,52 +1,10 @@
 const ComentsModel = require("../models/Coments");
 
 const comentsController = {
-  create: async (req, res) => {
+  create: async (coment) => {
     try {
-      const coments = {
-        content: req.body.content,
-        page: req.body.page,
-        author: req.body.author,
-      };
-
-      if (
-        coments.content === undefined ||
-        coments.content === null ||
-        coments.content === ""
-      ) {
-        res
-          .status(400)
-          .json({ msg: "O campo Conteúdo é obrigatório na request!" });
-        return;
-      }
-
-      if (
-        coments.page === undefined ||
-        coments.page === null ||
-        coments.page === ""
-      ) {
-        res
-          .status(400)
-          .json({ msg: "O campo Página é obrigatório na request!" });
-        return;
-      }
-
-      if (
-        coments.author === undefined ||
-        coments.author === null ||
-        coments.author === ""
-      ) {
-        res
-          .status(400)
-          .json({ msg: "O campo Autor é obrigatório na request!" });
-        return;
-      }
-
-      const response = await ComentsModel.create(coments);
-
-      res.status(201).json({ response, msg: "Comentário criado com sucesso!" });
+      return await ComentsModel.create(coment);
     } catch (error) {
-      res.status(500).json({ msg: "Erro ao criar comentário!" });
       console.error(error);
     }
   },

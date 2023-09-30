@@ -7,8 +7,8 @@ import { apiRoute } from '@/libs/api';
 import { useContext } from 'react';
 
 import { User2 } from 'lucide-react';
-import Logo from '../app/icon.png';
-import asset from '../assets/profile.png';
+import Logo from '../../app/icon.png';
+import asset from '../../assets/profile.png';
 import { AuthContext } from '@/contexts/Auth/authContext';
 
 export default function Header() {
@@ -53,14 +53,12 @@ export default function Header() {
 
   useEffect(() => {
     const calculateBackground = () => {
-      if (scrollPosition > 350) {
-        setHeaderBackground('rgb(2, 12, 20)');
-      } else if (scrollPosition > 250) {
-        setHeaderBackground('rgba(2, 12, 20, 0.9)');
-      } else if (scrollPosition > 150) {
-        setHeaderBackground('rgba(2, 12, 20, 0.7)');
-      } else if (scrollPosition > 50) {
-        setHeaderBackground('rgba(2, 12, 20, 0.5)');
+     if (scrollPosition > 50) {
+        // precisamos da % de 0 a 350, ai evitaria a gamb de deixar varios if
+        //350 of 350 = 100% 
+        //100 of 350 = 28.57%
+        setHeaderBackground('rgba(2, 12, 20, ' +  (scrollPosition / 350) 
+        + ')');
       } else if (scrollPosition <= 50) {
         setHeaderBackground('transparent');
       }
@@ -83,22 +81,13 @@ export default function Header() {
 
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
-            <Link href="/pages/home" className="hover:text-zinc-50 transition-colors">
-              Home
+            <Link href="/imersive" className="hover:text-zinc-50 transition-colors">
+              Trilha Imersive
             </Link>
           </li>
           <li>
-            <Link href="/pages/info" className="hover:text-zinc-50 transition-colors">
-              Info
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="#aboutUs"
-              onClick={() => {console.log(auth.user)}}
-              className="hover:text-zinc-50 transition-colors"              
-            >
-              About Us
+            <Link href="/static" className="hover:text-zinc-50 transition-colors">
+              Trilha Static
             </Link>
           </li>
         </ul>
@@ -134,7 +123,7 @@ export default function Header() {
             <p className="w-40 text-sm font-semibold">
               <span className="underline">Crie sua conta</span> e viaje pelo
               cosmos!
-              {isLoading === true ? <p>Carregando...</p> : null}
+              {isLoading === true ? <p className='text-sm'>Carregando...</p> : null}
             </p>
 
           </Link>
