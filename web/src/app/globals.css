@@ -49,6 +49,11 @@ body {
   position: relative;
 }
 
+.transition-bg {
+  transition: background-image 3s ease;
+  animation: transicao 3s ease;
+}
+
 .bg1::after,
 .bg2::after,
 .bg3::after {
@@ -74,6 +79,15 @@ body {
 
 .bg3::after {
   background-image: url('../assets/Bg.jpg');
+}
+
+@keyframes transicao {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .opacity {
