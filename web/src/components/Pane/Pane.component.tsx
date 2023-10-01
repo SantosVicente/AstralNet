@@ -1,14 +1,14 @@
 'use client';
 
 import { Card } from '../Card/Card.component';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Pagination } from 'swiper/modules';
 import { register } from 'swiper/element/bundle';
 import { BlockedCard } from '../Card/BlockedCard.component';
 import Image from 'next/image';
-
+import './pane.css';
 import BlackHole from '../../assets/BlackHole.svg';
 
 register();
@@ -21,6 +21,18 @@ import Link from 'next/link';
 
 export default function Pane() {
   const [cardIndex, setCardIndex] = useState(0);
+
+  const selectDestination = () => {
+    switch (cardIndex) {
+      case 0:
+        window.location.href = '/immersive/black-hole';
+        break;
+      case 1:
+        break;
+      case 2:
+        break;
+    }
+  };
 
   return (
     <Box className="pt-16 flex flex-col items-center h-screen w-screen justify-center z-[40] bg-blue-950 absolute top-0 left-0 select-none">
@@ -66,20 +78,19 @@ export default function Pane() {
               />
             </SwiperSlide>
             <SwiperSlide>
-              <BlockedCard />
+              <BlockedCard section={'Estrelas'} />
             </SwiperSlide>
             <SwiperSlide>
-              <BlockedCard />
+              <BlockedCard section={'Sistema Solar'} />
             </SwiperSlide>
           </Swiper>
         </Box>
       </Box>
-      <Link
-        href="/"
-        className="text-white border border-zinc-600 mt-11 p-10 text-2xl rounded-lg font-alt hover:font-bold hover:border-zinc-200"
-      >
+      <Box onClick={selectDestination} className="button mt-11">
+        <span></span>
+        <span></span>
         Selecionar Destino
-      </Link>
+      </Box>
     </Box>
   );
 }

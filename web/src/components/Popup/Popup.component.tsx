@@ -32,7 +32,7 @@ export function Popup(props: PopupProps) {
       <Button
         className="btn scroll-reveal px-4 py-2 rounded-md bg-gradient-to-br from-pink-500 to-blue-500 font-rob"
         onClick={handleClickOpen}
-        sx={{color: '#fff'}}
+        sx={{ color: '#fff' }}
       >
         {props.children}
       </Button>
@@ -42,9 +42,9 @@ export function Popup(props: PopupProps) {
           '& .MuiDialog-paper': {
             backgroundColor: 'rgba(10,37,50, 0.9)',
             border: '1px solid #fff',
-            color: '#fff'
-           },
-      }}
+            color: '#fff',
+          },
+        }}
         fullWidth={true}
         open={open}
         onClose={handleClose}
@@ -54,15 +54,26 @@ export function Popup(props: PopupProps) {
         <Box>
           <DialogTitle id="alert-dialog-title">{props.textTitle}</DialogTitle>
           <DialogContent>
-            <DialogContentText id="alert-dialog-description" className="text-slate-400">
+            <DialogContentText
+              id="alert-dialog-description"
+              className="text-slate-400"
+            >
               {props.textBody}
             </DialogContentText>
           </DialogContent>
           <Box className="flex items-center justify-between p-5">
-            <Link onClick={handleClose} href="./imersive" className='px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md'>
+            <Link
+              onClick={handleClose}
+              href="./immersive"
+              className="px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md"
+            >
               <Box>Trilha Imersiva</Box>
             </Link>
-            <Link onClick={handleClose} href="./static" className='px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md'>
+            <Link
+              onClick={handleClose}
+              href="./static"
+              className="px-4 py-2 transition-colors hover:bg-[rgba(53,57,70)] rounded-md"
+            >
               <Box>Trilha Estática</Box>
             </Link>
           </Box>

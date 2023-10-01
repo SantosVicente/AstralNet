@@ -6,10 +6,18 @@ import Image from 'next/image';
 import { apiRoute } from '@/libs/api';
 import { useContext } from 'react';
 
+import { Box } from '@mui/material';
 import { User2 } from 'lucide-react';
 import Logo from '../../app/icon.png';
 import asset from '../../assets/profile.png';
 import { AuthContext } from '@/contexts/Auth/authContext';
+import {
+  Dropdown,
+  DropdownItem,
+  DropdownMenu,
+  DropdownTrigger,
+  User,
+} from '@nextui-org/react';
 
 export default function Header() {
   const auth = useContext(AuthContext);
@@ -81,10 +89,10 @@ export default function Header() {
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
             <Link
-              href="/imersive"
+              href="/immersive"
               className="hover:text-zinc-50 transition-colors"
             >
-              Trilha Imersive
+              Trilha Immersive
             </Link>
           </li>
           <li>
@@ -98,10 +106,64 @@ export default function Header() {
         </ul>
 
         {auth.user ? (
-          <Link
-            href=""
-            className="flex items-center gap-2 text-zinc-50 font-alt transition-colors"
-          >
+          <Dropdown placement="bottom-start">
+            <DropdownTrigger>
+              <div className="transition-transform flex cursor-pointer items-center gap-1 transform hover:scale-105">
+                <User
+                  as="button"
+                  avatarProps={{
+                    isBordered: false,
+                    src: `${asset.src}`,
+                  }}
+                  description=""
+                  name=""
+                />
+                <div>
+                  <p className="w-40 text-sm font-alt font-semibold text-zinc-300">
+                    Bem vindo{' '}
+                    <span className="font-bold text-zinc-100">
+                      {auth.user?.name}
+                    </span>
+                  </p>
+                  <p
+                    className="text-xs hover:text-zinc-100 text-zinc-400 transition-colors"
+                    onClick={() => console.log(asset)}
+                  >
+                    Clique para Abrir o Menu
+                  </p>
+                </div>
+              </div>
+            </DropdownTrigger>
+            <DropdownMenu aria-label="User Actions" variant="solid">
+              <DropdownItem
+                key="settings"
+                className="font-alt text-zinc-800 transition-colors"
+              >
+                <span className="font-bold">My Settings</span>
+              </DropdownItem>
+              <DropdownItem
+                key="preferences"
+                className="font-alt text-zinc-800 transition-colors"
+              >
+                Preferences
+              </DropdownItem>
+              <DropdownItem
+                key="help_and_feedback"
+                className="font-alt text-zinc-800 transition-colors"
+              >
+                Help & Feedback
+              </DropdownItem>
+              <DropdownItem
+                key="logout"
+                color="danger"
+                className="font-alt text-red-600 hover:text-zinc-800 transition-colors"
+                onClick={handleLogout}
+              >
+                Log Out
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown> /*
+          <Box className="select-none flex items-center gap-2 text-zinc-50 font-alt transition-colors cursor-pointer">
             <Image src={asset} width={45} className="rounded-full" alt="" />
             <div>
               <p className="w-40 text-sm font-semibold">
@@ -114,12 +176,11 @@ export default function Header() {
                 Clique para Sair
               </p>
             </div>
-          </Link>
+          </Box>*/
         ) : (
-          <Link
-            href=""
+          <Box
             onClick={fetchData}
-            className="hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt transition-colors"
+            className="select-none hover:text-zinc-50 flex items-center gap-3 text-zinc-400 font-alt transition-colors cursor-pointer"
           >
             <div className="p-2 bg-zinc-400 bg-opacity-25 rounded-full">
               <User2 size={25} />
@@ -131,7 +192,7 @@ export default function Header() {
                 <p className="text-sm">Carregando...</p>
               ) : null}
             </p>
-          </Link>
+          </Box>
         )}
       </div>
     </div>
