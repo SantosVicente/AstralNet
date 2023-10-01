@@ -132,9 +132,9 @@ export default function Imersive() {
     }
   }, [mensagemAtual, mensagens, indiceMensagem, typing]);
 
-  const divLoading = document.getElementById('loading-div');
-
+  
   useEffect(() => {
+  const divLoading = document.getElementById('loading-div');
     if (progresso >= 100) {
       divLoading?.classList.add('fade-out');
       setPane(true);
@@ -142,7 +142,7 @@ export default function Imersive() {
         setLoading(false);
       }, 1000);
     }
-  }, [progresso, setLoading, setPane, divLoading]);
+  }, [progresso, setLoading, setPane]);
 
   const handleDivClick = () => {
     if (typing) {
