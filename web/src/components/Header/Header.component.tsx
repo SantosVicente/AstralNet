@@ -28,11 +28,11 @@ export default function Header() {
     setIsLoading(false);
   };
 
-  const handleLogout = async () => { 
+  const handleLogout = async () => {
     await auth.signout();
     setIsLogged(false);
     window.location.reload();
-  }
+  };
 
   const [scrollPosition, setScrollPosition] = useState<number>(0);
   const [headerBackground, setHeaderBackground] =
@@ -53,12 +53,11 @@ export default function Header() {
 
   useEffect(() => {
     const calculateBackground = () => {
-     if (scrollPosition > 50) {
+      if (scrollPosition > 50) {
         // precisamos da % de 0 a 350, ai evitaria a gamb de deixar varios if
-        //350 of 350 = 100% 
+        //350 of 350 = 100%
         //100 of 350 = 28.57%
-        setHeaderBackground('rgba(2, 12, 20, ' +  (scrollPosition / 350) 
-        + ')');
+        setHeaderBackground('rgba(2, 12, 20, ' + scrollPosition / 350 + ')');
       } else if (scrollPosition <= 50) {
         setHeaderBackground('transparent');
       }
@@ -69,7 +68,7 @@ export default function Header() {
 
   return (
     <div
-      className="h-16 w-screen z-50 fixed headerBg flex items-center px-[2%]"
+      className="h-16 w-screen z-[60] fixed headerBg flex items-center px-[2%]"
       style={{ backgroundColor: headerBackground }}
       id="header"
     >
@@ -81,17 +80,22 @@ export default function Header() {
 
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
-            <Link href="/imersive" className="hover:text-zinc-50 transition-colors">
+            <Link
+              href="/imersive"
+              className="hover:text-zinc-50 transition-colors"
+            >
               Trilha Imersive
             </Link>
           </li>
           <li>
-            <Link href="/static" className="hover:text-zinc-50 transition-colors">
+            <Link
+              href="/static"
+              className="hover:text-zinc-50 transition-colors"
+            >
               Trilha Static
             </Link>
           </li>
         </ul>
-
 
         {auth.user ? (
           <Link
@@ -123,12 +127,12 @@ export default function Header() {
             <p className="w-40 text-sm font-semibold">
               <span className="underline">Crie sua conta</span> e viaje pelo
               cosmos!
-              {isLoading === true ? <p className='text-sm'>Carregando...</p> : null}
+              {isLoading === true ? (
+                <p className="text-sm">Carregando...</p>
+              ) : null}
             </p>
-
           </Link>
         )}
-        
       </div>
     </div>
   );
