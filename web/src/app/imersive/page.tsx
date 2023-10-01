@@ -1,17 +1,11 @@
 'use client';
 
-import { Card } from '@/components/Card/Card.component';
-import { Box, Button, Typography } from '@mui/material';
-import { ArrowBigLeft, ArrowBigRight } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { Typewriter } from 'react-simple-typewriter';
-import background from '../../assets/1311860.jpeg';
+import { Box } from '@mui/material';
 
+import { useEffect, useState } from 'react';
+import background from '../../assets/1311860.jpeg';
+import Loading from '../../components/Loading/Loading.component';
 import { register } from 'swiper/element/bundle';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Pagination } from 'swiper/modules';
 
 register();
 import 'swiper/css';
@@ -22,10 +16,14 @@ import 'swiper/css/effect-coverflow';
 import { setTimeout } from 'timers';
 
 import './imersive.css';
+import Image from 'next/image';
+import background1 from '../../assets/1311860.jpeg';
+import background2 from '../../assets/Bg.jpg';
+import Pane from '../../components/Pane/Pane.component';
 
 export default function Imersive() {
   const backgrounds = [
-    { id: 1, url: '../assets/Bg.jpg' },
+    { id: 1, url: { background } },
     { id: 2, url: '/path/to/background2.jpg' },
     { id: 3, url: '/path/to/background3.jpg' },
   ];
@@ -96,8 +94,10 @@ export default function Imersive() {
   const [mensagemAtual, setMensagemAtual] = useState('');
   const [indiceMensagem, setIndiceMensagem] = useState(0);
   const [typing, setTyping] = useState(true);
-  const [cardIndex, setCardIndex] = useState(0);
   const [backgroundIndex, setBackgroundIndex] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [progresso, setProgresso] = useState(0);
+  const [pane, setPane] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('overflow-hidden-body');
@@ -132,6 +132,18 @@ export default function Imersive() {
     }
   }, [mensagemAtual, mensagens, indiceMensagem, typing]);
 
+  
+  useEffect(() => {
+  const divLoading = document.getElementById('loading-div');
+    if (progresso >= 100) {
+      divLoading?.classList.add('fade-out');
+      setPane(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  }, [progresso, setLoading, setPane]);
+
   const handleDivClick = () => {
     if (typing) {
       //se mensagemAtual ainda tiver digitando, exiba a frase inteira
@@ -142,84 +154,49 @@ export default function Imersive() {
       if (indiceMensagem < mensagens.length - 1) {
         setIndiceMensagem(indiceMensagem + 1);
         setTyping(true);
+      } else {
+        setLoading(true);
       }
     }
   };
 
   return (
-    <>
-      <Box
-        className={`w-screen h-screen bg${backgroundIndex} bgzin flex items-end overflow-hidden`}
-      >
-        <Box
-          className="h-[15rem] w-full m-3 bg-opacity-90 bg-black text-white p-2 rounded cursor-pointer border border-red-500"
-          onClick={handleDivClick}
+    <Box className="w-screen h-screen relative overflow-hidden">
+      {!!loading ? (
+        <div
+          className="absolute top-0 left-0 h-screen w-screen bg-zinc-900 fade-in z-[50]"
+          id="loading-div"
         >
-          <p className="m-4 font-alt text-3xl select-none">
-            {typing ? mensagemAtual : mensagens[indiceMensagem].msg}
-          </p>
-        </Box>
-      </Box>
-      {/*<Box className="pt-16 flex flex-col items-center h-screen justify-center">
-        <Box className="mb-11 flex gap-10 w-screen items-center justify-center">
-          <Box className="border-card2 border border-zinc-600 rounded-md flex w-[25%] h-[4.5rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center" />
-          <Box className="border-card2 border border-zinc-600 rounded-md flex px-[1rem] pb-[1rem] pt-[1.5rem] transition-colors text-zinc-100 bg-zinc-50 bg-opacity-5 items-center justify-center">
-            <Typography variant="h4">Escolha seu Próximo Destino!</Typography>
-          </Box>
-          <Box className="border-card2 border border-zinc-600 rounded-md flex w-[25%] h-[4.5rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center" />
-        </Box>
-        <Box className="flex gap-10 items-center">
-          <Box className="flex gap-10">
-            <Swiper
-              effect={'coverflow'}
-              navigation={true}
-              grabCursor={true}
-              centeredSlides={true}
-              slidesPerView={3}
-              coverflowEffect={{
-                rotate: 0,
-                ustretch: 0,
-                depth: 200,
-                modifier: 1,
-                slideShadows: true,
-              }}
-              pagination={true}
-              modules={[EffectCoverflow, Pagination]}
-              onTransitionEnd={(swiper) => {
-                setCardIndex(swiper.activeIndex);
-              }}
+          <Loading value={progresso} setValue={setProgresso} />
+        </div>
+      ) : !loading && !pane ? (
+        <>
+          <Image
+            src={backgroundIndex == 1 ? background1 : background2}
+            alt="background"
+            className="absolute top-0 left-0 -z-9 w-full h-full object-cover"
+          />
+          <Box
+            className={`w-screen h-screen bg${backgroundIndex} z-40 flex items-end overflow-hidden`}
+          >
+            <Box
+              className="h-[15rem] w-full m-3 bg-opacity-80 bg-black text-white p-2 rounded-xl cursor-pointer border border-red-500"
+              onClick={handleDivClick}
             >
-              <SwiperSlide>
-                <Card
-                  title="Card 1"
-                  description="Conteudo do Card 1"
-                  link="./imersive"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card
-                  title="Card 2"
-                  description="Conteudo do Card 2"
-                  link="./imersive"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Card
-                  title="Card 3"
-                  description="Conteudo do Card 3"
-                  link="./imersive"
-                />
-              </SwiperSlide>
-            </Swiper>
+              <p className="m-4 font-alt text-3xl select-none">
+                {typing ? mensagemAtual : mensagens[indiceMensagem].msg}
+              </p>
+            </Box>
           </Box>
-        </Box>
-        <Button
-          className="text-white border border-zinc-600 mt-11 p-10 text-2xl rounded-lg font-alt hover:font-bold hover:border-zinc-200"
-          variant="outlined"
-        >
-          Selecionar Destino
-        </Button>
-            </Box>*/}
-    </>
+        </>
+      ) : (
+        !!loading ||
+        (!!pane && (
+          <Box className="absolute top-0 left-0 w-screen h-screen fade-in">
+            <Pane />
+          </Box>
+        ))
+      )}
+    </Box>
   );
 }
