@@ -17,12 +17,13 @@ import 'swiper/css/navigation'; //import das setas
 import 'swiper/css/pagination'; //import da paginação
 import 'swiper/css/scrollbar'; //import da scrollbar
 import 'swiper/css/effect-coverflow';
+import Link from 'next/link';
 
 export default function Pane() {
   const [cardIndex, setCardIndex] = useState(0);
 
   return (
-    <Box className="pt-16 flex flex-col items-center h-screen justify-center">
+    <Box className="pt-16 flex flex-col items-center h-screen w-screen justify-center z-[40] bg-blue-950 absolute top-0 left-0 select-none">
       <Box className="mb-11 flex gap-10 w-screen items-center justify-center">
         <Box className="border-card2 border border-zinc-600 rounded-md flex w-[25%] h-[4.5rem] transition-colors text-zinc-400 hover:text-zinc-50 bg-zinc-50 bg-opacity-5 items-center justify-center" />
         <Box className="border-card2 border border-zinc-600 rounded-md flex px-[1rem] pb-[1rem] pt-[1.5rem] transition-colors text-zinc-100 bg-zinc-50 bg-opacity-5 items-center justify-center">
@@ -73,12 +74,12 @@ export default function Pane() {
           </Swiper>
         </Box>
       </Box>
-      <Button
+      <Link
+        href="/"
         className="text-white border border-zinc-600 mt-11 p-10 text-2xl rounded-lg font-alt hover:font-bold hover:border-zinc-200"
-        variant="outlined"
       >
         Selecionar Destino
-      </Button>
+      </Link>
     </Box>
   );
 }

@@ -39,6 +39,23 @@ body {
   }
 }
 
+@keyframes leaveOpacity {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-in {
+  animation: transicao 1s ease;
+}
+
+.fade-out {
+  animation: leaveOpacity 1s ease forwards;
+}
+
 .opacity {
   background-color: rgba(0, 0, 0, 0.2);
 }

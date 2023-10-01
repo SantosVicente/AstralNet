@@ -4,7 +4,7 @@ import { Box } from '@mui/material';
 
 import { useEffect, useState } from 'react';
 import background from '../../assets/1311860.jpeg';
-
+import Loading from '../../components/Loading/Loading.component';
 import { register } from 'swiper/element/bundle';
 
 register();
@@ -19,6 +19,7 @@ import './imersive.css';
 import Image from 'next/image';
 import background1 from '../../assets/1311860.jpeg';
 import background2 from '../../assets/Bg.jpg';
+import Pane from '../../components/Pane/Pane.component';
 
 export default function Imersive() {
   const backgrounds = [
@@ -94,6 +95,9 @@ export default function Imersive() {
   const [indiceMensagem, setIndiceMensagem] = useState(0);
   const [typing, setTyping] = useState(true);
   const [backgroundIndex, setBackgroundIndex] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const [progresso, setProgresso] = useState(0);
+  const [pane, setPane] = useState(false);
 
   useEffect(() => {
     document.body.classList.add('overflow-hidden-body');
@@ -128,6 +132,18 @@ export default function Imersive() {
     }
   }, [mensagemAtual, mensagens, indiceMensagem, typing]);
 
+  const divLoading = document.getElementById('loading-div');
+
+  useEffect(() => {
+    if (progresso >= 100) {
+      divLoading?.classList.add('fade-out');
+      setPane(true);
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }
+  }, [progresso, setLoading, setPane, divLoading]);
+
   const handleDivClick = () => {
     if (typing) {
       //se mensagemAtual ainda tiver digitando, exiba a frase inteira
@@ -138,29 +154,49 @@ export default function Imersive() {
       if (indiceMensagem < mensagens.length - 1) {
         setIndiceMensagem(indiceMensagem + 1);
         setTyping(true);
+      } else {
+        setLoading(true);
       }
     }
   };
 
   return (
     <Box className="w-screen h-screen relative overflow-hidden">
-      <Image
-        src={backgroundIndex == 1 ? background1 : background2}
-        alt="background"
-        className="absolute top-0 left-0 -z-9 w-screen h-screen object-cover"
-      />
-      <Box
-        className={`w-screen h-screen bg${backgroundIndex} z-50 flex items-end overflow-hidden`}
-      >
-        <Box
-          className="h-[15rem] w-full m-3 bg-opacity-80 bg-black text-white p-2 rounded-xl cursor-pointer border border-red-500"
-          onClick={handleDivClick}
+      {!!loading ? (
+        <div
+          className="absolute top-0 left-0 h-screen w-screen bg-zinc-900 fade-in z-[50]"
+          id="loading-div"
         >
-          <p className="m-4 font-alt text-3xl select-none">
-            {typing ? mensagemAtual : mensagens[indiceMensagem].msg}
-          </p>
-        </Box>
-      </Box>
+          <Loading value={progresso} setValue={setProgresso} />
+        </div>
+      ) : !loading && !pane ? (
+        <>
+          <Image
+            src={backgroundIndex == 1 ? background1 : background2}
+            alt="background"
+            className="absolute top-0 left-0 -z-9 w-full h-full object-cover"
+          />
+          <Box
+            className={`w-screen h-screen bg${backgroundIndex} z-40 flex items-end overflow-hidden`}
+          >
+            <Box
+              className="h-[15rem] w-full m-3 bg-opacity-80 bg-black text-white p-2 rounded-xl cursor-pointer border border-red-500"
+              onClick={handleDivClick}
+            >
+              <p className="m-4 font-alt text-3xl select-none">
+                {typing ? mensagemAtual : mensagens[indiceMensagem].msg}
+              </p>
+            </Box>
+          </Box>
+        </>
+      ) : (
+        !!loading ||
+        (!!pane && (
+          <Box className="absolute top-0 left-0 w-screen h-screen fade-in">
+            <Pane />
+          </Box>
+        ))
+      )}
     </Box>
   );
 }
