@@ -4,7 +4,6 @@ import {
   Avatar,
   Badge,
   Button,
-  Input,
   Modal,
   ModalBody,
   ModalContent,
@@ -17,6 +16,8 @@ import { useState } from 'react';
 import './chat.css';
 import { MessageSquare, Send } from 'lucide-react';
 import { TextField } from '@mui/material';
+
+import pfp from '../../assets/bot.png';
 
 type AuthorType = {
   name: String;
@@ -77,11 +78,7 @@ export default function Chat(props: ChatProps) {
           {(onClose) => (
             <>
               <ModalHeader className="flex items-center gap-4 border-b border-zinc-500">
-                <Avatar
-                  isBordered
-                  className="w-12 h-12"
-                  src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
-                />
+                <Avatar isBordered className="w-12 h-12" src={pfp.src} />
                 <p className="text-lg font-alt">{props.chat.name}</p>
               </ModalHeader>
               <ModalBody className="h-[20rem] overflow-y-auto">
@@ -95,11 +92,11 @@ export default function Chat(props: ChatProps) {
                     } p-2`}
                   >
                     <p
-                      className={`inline-block max-w-xs bg-zinc-50 p-3 font-semibold ${
+                      className={`inline-block p-3 font-semibold ${
                         message.author.identifier === 'User'
                           ? 'rounded-custom-message-user'
                           : 'rounded-custom-message'
-                      } ${
+                      } max-w-xs ${
                         message.author.identifier === 'User'
                           ? 'bg-[#d7bd8d]'
                           : 'bg-zinc-50'
