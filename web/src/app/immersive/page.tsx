@@ -15,13 +15,14 @@ import 'swiper/css/scrollbar'; //import da scrollbar
 import 'swiper/css/effect-coverflow';
 import { setTimeout } from 'timers';
 
-import './imersive.css';
+import './immersive.css';
 import Image from 'next/image';
 import background1 from '../../assets/1311860.jpeg';
 import background2 from '../../assets/Bg.jpg';
 import Pane from '../../components/Pane/Pane.component';
+import Chat from '../../components/Chat/Chat.component';
 
-export default function Imersive() {
+export default function Immersive() {
   const backgrounds = [
     { id: 1, url: { background } },
     { id: 2, url: '/path/to/background2.jpg' },
@@ -132,9 +133,8 @@ export default function Imersive() {
     }
   }, [mensagemAtual, mensagens, indiceMensagem, typing]);
 
-  
   useEffect(() => {
-  const divLoading = document.getElementById('loading-div');
+    const divLoading = document.getElementById('loading-div');
     if (progresso >= 100) {
       divLoading?.classList.add('fade-out');
       setPane(true);
@@ -162,6 +162,8 @@ export default function Imersive() {
 
   return (
     <Box className="w-screen h-screen relative overflow-hidden">
+      {!loading && <Chat />}
+
       {!!loading ? (
         <div
           className="absolute top-0 left-0 h-screen w-screen bg-zinc-900 fade-in z-[50]"
