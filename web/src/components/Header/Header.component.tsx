@@ -81,7 +81,7 @@ export default function Header() {
       id="header"
     >
       <div className="flex justify-between items-center font-bold w-full">
-        <Link href="" className="flex gap-2 items-center">
+        <Link tabIndex={-1} href="" className="flex gap-2 items-center">
           <Image src={Logo} alt="" width={50} />
           <p className="text-3xl font-alt">Astral NET</p>
         </Link>
@@ -89,6 +89,7 @@ export default function Header() {
         <ul className="flex gap-4  font-alt text-zinc-400">
           <li>
             <Link
+              tabIndex={-1}
               href="/immersive"
               className="hover:text-zinc-50 transition-colors"
             >
@@ -97,6 +98,7 @@ export default function Header() {
           </li>
           <li>
             <Link
+              tabIndex={-1}
               href="/static"
               className="hover:text-zinc-50 transition-colors"
             >
@@ -106,10 +108,11 @@ export default function Header() {
         </ul>
 
         {auth.user ? (
-          <Dropdown placement="bottom-start">
+          <Dropdown tabIndex={-1} placement="bottom-start">
             <DropdownTrigger>
               <div className="transition-transform flex cursor-pointer items-center gap-1 transform hover:scale-105">
                 <User
+                  tabIndex={-1}
                   as="button"
                   avatarProps={{
                     isBordered: false,

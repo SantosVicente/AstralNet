@@ -49,8 +49,9 @@ export default function Home() {
                   Comece Agora
                 </Popup>
                 <Link
+                  tabIndex={-1}
                   href=""
-                  className="btn scroll-reveal opacity px-6 py-2 rounded-md border border-blue-500 hover:border-pink-500"
+                  className="btn scroll-reveal text-zinc-200 opacity px-6 py-2 rounded-md border border-blue-500 hover:border-pink-500 transition-all"
                 >
                   Saiba Mais
                 </Link>
