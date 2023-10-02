@@ -8,6 +8,7 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
+  Tooltip,
 } from '@nextui-org/react';
 import { useState } from 'react';
 
@@ -22,16 +23,21 @@ export default function Chat() {
   return (
     <>
       {!isOpen && (
-        <div
-          className="absolute top-[35%] right-6 z-[70] p-custom rounded-full hover:bg-zinc-500 hover:bg-opacity-60 cursor-pointer trasform hover:scale-110 transition-all"
-          onClick={() => {
-            setIsOpen(true);
-          }}
+        <Tooltip
+          content="Histórico de Conversas"
+          className="text-zinc-800 bg-yellow-50"
         >
-          <Badge content="" color="danger">
-            <MessageSquare size={25} className="text-zinc-50" />
-          </Badge>
-        </div>
+          <div
+            className="absolute top-[35%] right-6 z-[70] p-custom rounded-full hover:bg-zinc-500 hover:bg-opacity-60 cursor-pointer trasform hover:scale-110 transition-all"
+            onClick={() => {
+              setIsOpen(true);
+            }}
+          >
+            <Badge content="" color="danger">
+              <MessageSquare size={25} className="text-zinc-50" />
+            </Badge>
+          </div>
+        </Tooltip>
       )}
       <Modal
         backdrop="blur"
