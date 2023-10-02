@@ -20,8 +20,8 @@ export default function AboutUs() {
           </div>
           <div>
             <h1 className="text-gray-400 hover:text-gray-50">
-              <a tabIndex={-1} href="#" target="_blank">
-                Matheus Rodrigues
+              <a tabIndex={-1} href="https://github.com/shimetsu3" target="_blank">
+                Mateus Rodrigues
               </a>
             </h1>
           </div>

@@ -5,3 +5,11 @@
 .p-custom {
   padding: 0.5rem 0.5rem 0 0.5rem;
 }
+
+.rounded-custom-message {
+  border-radius: 0 0.7rem 0.7rem 0.7rem;
+}
+
+.rounded-custom-message-user {
+  border-radius: 0.7rem 0 0.7rem 0.7rem;
+}
