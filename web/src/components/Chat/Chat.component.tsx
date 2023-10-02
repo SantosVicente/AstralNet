@@ -1,8 +1,10 @@
 'use client';
 
 import {
+  Avatar,
   Badge,
   Button,
+  Input,
   Modal,
   ModalBody,
   ModalContent,
@@ -13,9 +15,29 @@ import {
 import { useState } from 'react';
 
 import './chat.css';
-import { MessageSquare } from 'lucide-react';
+import { MessageSquare, Send } from 'lucide-react';
+import { TextField } from '@mui/material';
 
-export default function Chat() {
+type AuthorType = {
+  name: String;
+  avatar: String;
+  identifier: String;
+};
+
+type MessageType = {
+  id: number;
+  backgroundID: number;
+  msg: String;
+  progresso: number;
+  author: AuthorType;
+};
+
+interface ChatProps {
+  messages: MessageType[];
+  chat: AuthorType;
+}
+
+export default function Chat(props: ChatProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   const onClose = () => setIsOpen(false);
@@ -44,40 +66,68 @@ export default function Chat() {
         isOpen={isOpen}
         onClose={onClose}
         radius="none"
-        className="absolute top-[15%] right-0 z-[80] text-zinc-800 bg-yellow-50 rounded-custom"
+        scrollBehavior="inside"
+        className="absolute top-[15%] h-[40rem] right-0 z-[80] text-zinc-800 bg-gray-200 rounded-custom"
+        classNames={{
+          closeButton:
+            'bg-transparent text-zinc-800 transition-all m-[1.30rem] hover:bg-zinc-500 hover:bg-opacity-60 hover:text-zinc-50',
+        }}
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
-                Modal Title
+              <ModalHeader className="flex items-center gap-4 border-b border-zinc-500">
+                <Avatar
+                  isBordered
+                  className="w-12 h-12"
+                  src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+                />
+                <p className="text-lg font-alt">{props.chat.name}</p>
               </ModalHeader>
-              <ModalBody>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Nullam pulvinar risus non risus hendrerit venenatis.
-                  Pellentesque sit amet hendrerit risus, sed porttitor quam.
-                </p>
-                <p>
-                  Magna exercitation reprehenderit magna aute tempor cupidatat
-                  consequat elit dolor adipisicing. Mollit dolor eiusmod sunt ex
-                  incididunt cillum quis. Velit duis sit officia eiusmod Lorem
-                  aliqua enim laboris do dolor eiusmod. Et mollit incididunt
-                  nisi consectetur esse laborum eiusmod pariatur proident Lorem
-                  eiusmod et. Culpa deserunt nostrud ad veniam.
-                </p>
+              <ModalBody className="h-[20rem] overflow-y-auto">
+                {props.messages.map((message, index) => (
+                  <div
+                    key={index}
+                    className={`${
+                      message.author.identifier === 'User'
+                        ? 'text-right'
+                        : 'text-left'
+                    } p-2`}
+                  >
+                    <p
+                      className={`inline-block max-w-xs bg-zinc-50 p-3 font-semibold ${
+                        message.author.identifier === 'User'
+                          ? 'rounded-custom-message-user'
+                          : 'rounded-custom-message'
+                      } ${
+                        message.author.identifier === 'User'
+                          ? 'bg-[#d7bd8d]'
+                          : 'bg-zinc-50'
+                      }`}
+                    >
+                      {message.msg}
+                    </p>
+                  </div>
+                ))}
               </ModalBody>
-              <ModalFooter>
-                <Button color="danger" variant="light" onPress={onClose}>
-                  Close
-                </Button>
-                <Button color="primary" onPress={onClose}>
-                  Action
+              <ModalFooter className="border-t border-zinc-500">
+                <TextField
+                  placeholder="Clique para digitar..."
+                  variant="outlined"
+                  disabled
+                  className="w-full text-zinc-800 transition-all border-indigo-800"
+                  sx={{
+                    border: '1px solid rgb(30 27 75)',
+                    borderRadius: '0.375rem',
+                  }}
+                />
+                <Button
+                  isIconOnly
+                  color="primary"
+                  aria-label="Like"
+                  className="w-16 h-auto"
+                >
+                  <Send size={25} />
                 </Button>
               </ModalFooter>
             </>
