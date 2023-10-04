@@ -1,38 +1,26 @@
-'use client';
-
-import React, { useState } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import './ImageTransition.css'; // Estilo para a transição
-import Image from 'next/image';
-import background from '../../../assets/BlackHole.svg';
-import background2 from '../../../assets/asteroid.svg';
+import { Box, Typography } from '@mui/material';
+import { AlertTriangle } from 'lucide-react';
 
 export default function SolarSystem() {
-  const [showImage, setShowImage] = useState(false);
-
-  const toggleImage = () => {
-    setShowImage(!showImage);
-  };
-
   return (
     <div className="pt-16 flex items-center h-screen justify-center">
-      <div>
-        <button onClick={toggleImage}>Toggle Image</button>
-
-        <CSSTransition
-          in={showImage}
-          timeout={3000} // Tempo da transição em milissegundos
-          classNames="fade"
-          unmountOnExit
-        >
-          <Image
-            src={showImage ? background : background2}
-            alt="Imagem"
-            className="image"
-            onClick={toggleImage}
-          />
-        </CSSTransition>
-      </div>
+      <Box
+        display="flex"
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        height="100vh"
+      >
+        <AlertTriangle size={70} className="text-red-500" />
+        <Typography variant="h4" className="font-alt font-bold">
+          Página em Construção
+        </Typography>
+        <Typography variant="h6" className="font-alt text-center">
+          A sessão de Sistema Solar ainda está em construção. Por favor, volte
+          mais tarde
+          <br /> para aproveitar a versão atual.
+        </Typography>
+      </Box>
     </div>
   );
 }
