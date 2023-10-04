@@ -1,9 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
 
-import urlImage from '../../assets/31343C.svg';
+import BlackcHole from '../../assets/blackhole.jpg';
+import SolarSystem from '../../assets/solarsystem.png';
+import Universe from '../../assets/universe.png';
 
 import './static.css';
 import { Button } from '@nextui-org/react';
@@ -32,7 +33,13 @@ export default function Static() {
       </h2>
       <div className="flex justify-center gap-52 mb-10">
         <div className="flex flex-col border border-zinc-500 rounded-xl bg-zinc-950 bg-opacity-70">
-          <Image src={urlImage} alt="" width={350} className="rounded-image" />
+          <Image
+            src={BlackcHole}
+            alt=""
+            width={350}
+            height={197}
+            className="rounded-image object-cover max-h-48"
+          />
 
           <div className="flex flex-col gap-2 max-w-[350px] p-4">
             <h2 className="font-alt text-2xl font-bold">Buracos Negros</h2>
@@ -52,7 +59,13 @@ export default function Static() {
           </div>
         </div>
         <div className="flex flex-col border border-zinc-500 rounded-xl bg-zinc-950 bg-opacity-70">
-          <Image src={urlImage} alt="" width={350} className="rounded-image" />
+          <Image
+            src={SolarSystem}
+            alt=""
+            width={350}
+            height={197}
+            className="rounded-image object-cover max-h-48"
+          />
 
           <div className="flex flex-col gap-2 max-w-[350px] p-4">
             <h2 className="font-alt text-2xl font-bold">Sistema Solar</h2>
@@ -73,7 +86,12 @@ export default function Static() {
           </div>
         </div>
         <div className="flex flex-col border border-zinc-500 rounded-xl bg-zinc-950 bg-opacity-70">
-          <Image src={urlImage} alt="" width={350} className="rounded-image" />
+          <Image
+            src={Universe}
+            alt=""
+            width={350}
+            className="rounded-image object-cover max-h-48"
+          />
 
           <div className="flex flex-col gap-2 max-w-[350px] p-4">
             <h2 className="font-alt text-2xl font-bold">Universo em Escala</h2>
