@@ -106,7 +106,7 @@ export default function Pane() {
             </Swiper>
           </Box>
         </Box>
-        <Box onClick={selectDestination} className="button mt-11">
+        <Box onClick={selectDestination} className="button mt-8">
           <span></span>
           <span></span>
           Selecionar Destino
