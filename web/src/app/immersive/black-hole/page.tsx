@@ -356,7 +356,7 @@ export default function BlackHole() {
             className="absolute top-[35%] z-[80] rounded-md text-zinc-800 bg-gray-200"
             classNames={{
               closeButton:
-                'bg-transparent text-zinc-800 transition-all m-4 hover:bg-zinc-500 hover:bg-opacity-60 hover:text-zinc-50',
+                'bg-transparent text-zinc-800 transition-all m-1 hover:bg-zinc-500 hover:bg-opacity-60 hover:text-zinc-50',
             }}
           >
             <ModalContent>

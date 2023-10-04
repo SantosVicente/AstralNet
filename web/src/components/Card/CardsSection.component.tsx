@@ -2,6 +2,8 @@ import ScrollAnimation from '@/scrolls/ScrollReveal';
 import ScrollAnimationX from '@/scrolls/ScrollReveal2';
 import { Rocket, Orbit, Satellite } from 'lucide-react';
 import { Card } from './Card.component';
+import Image from 'next/image';
+import BlackHole from '../../assets/BlackHole.svg';
 
 export default function CardsSection() {
   return (
@@ -16,8 +18,12 @@ export default function CardsSection() {
           <div className="flex flex-col gap-6 md:hidden">
             <div className="h-[0.1rem] rounded-md bg-zinc-500 w-20" />
             <p className="text-lg text-zinc-300">
-              Estas são algumas de nossas sessões de leitura da 
-              <span className='font-bold font-alt text-zinc-50'> Trilha Static</span><br /> 
+              Estas são algumas de nossas sessões de leitura da
+              <span className="font-bold font-alt text-zinc-50">
+                {' '}
+                Trilha Static
+              </span>
+              <br />
               que você pode visitar!
             </p>
           </div>
@@ -28,13 +34,15 @@ export default function CardsSection() {
         <div className="xl:overflow-x-scroll overflow-hidden 2xl:gap-[2%] w-full h-[30rem] flex gap-[5%] xl:gap-0 justify-center xl:justify-start">
           <ScrollAnimation delay={0.1} duration={0.3} y={100}>
             <Card
-              title="Introdução à Astronomia"
-              description="Explore o vasto universo e desvende os segredos do cosmos
-                    com uma introdução envolvente à astronomia. Neste breve
-                    guia, vamos mergulhar nos fundamentos e nas maravilhas que a
-                    astronomia tem a oferecer."
-              icon={<Rocket size={60} className="mt-[15%]" />}
-              link="/static/introduction"
+              title="Buracos Negros"
+              description="Explore o mundo intrigante dos buracos negros, entenda 
+                    como eles funcionam, como se formam, e desmistifique sua 
+                    percepção em relação a esses objetos tão fascinantes do 
+                    universo"
+              icon={
+                <Image src={BlackHole} width={70} alt="" className="mt-[15%]" />
+              }
+              link="/static/black-hole"
             />
           </ScrollAnimation>
           <ScrollAnimation delay={0.3} duration={0.3} y={100}>
@@ -44,7 +52,7 @@ export default function CardsSection() {
                     vastas escalas do universo. Neste guia envolvente,
                     exploraremos as teorias de formação do universo e
                     descobriremos as maravilhas da cosmologia observacional."
-              icon={<Orbit size={60} className="mt-[15%]" />}
+              icon={<Orbit size={60} className="mt-[15%] text-zinc-50" />}
               link="/static/universe-scale"
             />
           </ScrollAnimation>
@@ -55,7 +63,7 @@ export default function CardsSection() {
                     apresentaremos uma introdução fascinante ao nosso sistema
                     solar, os planetas que o compõem, a exploração de Marte e as
                     futuras missões que nos aguardam na exploração do espaço."
-              icon={<Satellite size={60} className="mt-[15%]" />}
+              icon={<Satellite size={60} className="mt-[15%] text-zinc-50" />}
               link="/static/solar-system"
             />
           </ScrollAnimation>
