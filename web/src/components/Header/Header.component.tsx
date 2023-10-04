@@ -81,7 +81,7 @@ export default function Header() {
       id="header"
     >
       <div className="flex justify-between items-center font-bold w-full">
-        <Link tabIndex={-1} href="" className="flex gap-2 items-center">
+        <Link tabIndex={-1} href="/" className="flex gap-2 items-center">
           <Image src={Logo} alt="" width={50} />
           <p className="text-3xl font-alt">Astral NET</p>
         </Link>
