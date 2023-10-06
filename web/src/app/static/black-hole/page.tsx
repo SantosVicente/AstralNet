@@ -2,6 +2,7 @@
 
 import { Button } from '@nextui-org/react';
 import { ArrowLeftCircle } from 'lucide-react';
+import Link from 'next/link';
 
 export default function BlackHoleStatic() {
   return (
@@ -156,14 +157,22 @@ export default function BlackHoleStatic() {
           saindo.
         </p>
 
-        <Button
-          color="danger"
-          onPress={() => (window.location.href = '/static')}
-          endContent={<ArrowLeftCircle />}
-          className="w-52 mt-5"
-        >
-          Clique para Voltar
-        </Button>
+        <div className="flex flex-col gap-2">
+          <Link
+            href="/static"
+            className="w-52 mt-5 bg-red-600 text-zinc-200 transform hover:scale-110 hover:bg-red-700 transition-all rounded-md p-2 flex items-center justify-center gap-2"
+          >
+            Clique para Voltar
+            <ArrowLeftCircle />
+          </Link>
+          <Link
+            href="https://linktr.ee/SantosVicente"
+            className="w-52 mt-5 bg-emerald-500 text-zinc-800 transform hover:scale-110 hover:bg-emerald-600 transition-all rounded-md p-2 flex items-center justify-center gap-2"
+          >
+            Acesse a Bibliografia
+            <ArrowLeftCircle />
+          </Link>
+        </div>
       </div>
     </div>
   );

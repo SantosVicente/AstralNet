@@ -50,7 +50,7 @@ export default function Home() {
                 </Popup>
                 <Link
                   tabIndex={-1}
-                  href="/static"
+                  href="https://linktr.ee/SantosVicente"
                   className="btn scroll-reveal text-zinc-200 opacity px-6 py-2 rounded-md border border-blue-500 hover:border-pink-500 transition-all"
                 >
                   Saiba Mais
