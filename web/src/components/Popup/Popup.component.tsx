@@ -11,6 +11,7 @@ import {
   ModalHeader,
   useDisclosure,
 } from '@nextui-org/react';
+import Link from 'next/link';
 
 interface PopupProps {
   children: React.ReactNode;
@@ -50,21 +51,19 @@ export function Popup(props: PopupProps) {
               </ModalBody>
               <ModalFooter>
                 <div className="flex gap-2 mt-2">
-                  <Button
-                    className="bg-transparent rounded-sm text-zinc-300"
-                    variant="light"
-                    onPress={() => (window.location.href = '/immersive')}
+                  <Link
+                    href="/immersive"
+                    className="bg-transparent rounded-sm text-zinc-300 transition-all hover:bg-zinc-300 hover:bg-opacity-30 text-sm p-2"
                   >
                     Trilha Immersive
-                  </Button>
+                  </Link>
 
-                  <Button
-                    className="bg-transparent rounded-sm text-zinc-300"
-                    variant="light"
-                    onPress={() => (window.location.href = '/static')}
+                  <Link
+                    className="bg-transparent rounded-sm text-zinc-300 transition-all hover:bg-zinc-300 hover:bg-opacity-30 text-sm p-2"
+                    href="/static"
                   >
                     Trilha Static
-                  </Button>
+                  </Link>
                 </div>
               </ModalFooter>
             </>
